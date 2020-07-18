@@ -1,0 +1,813 @@
+*{
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	font-family: NotoSansSC, sans-serif;
+}
+
+body{
+	background-color: white;
+	margin: 0px;
+	padding: 0px;
+}
+
+.header{
+	position: relative;
+	display: flex;
+	padding-left: 10px;
+	padding-right: 10px;
+	/*justify-content: center;*/
+	border-bottom: solid 0.5px rgba(95, 99, 128,0.2);
+}
+
+.header .left-header{
+	/*float:left;*/
+	display: flex;
+	position: relative;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+
+.left-header .main-menu{
+	display: flex;
+	position: relative;
+	margin-top: 5px;
+	width: 50px;
+	height: 50px;
+	border:none;
+	border-radius: 50%;
+	/*background-color: orange;*/
+}
+
+.main-menu span{
+	visibility: hidden;
+	position: absolute;
+	width: 90px;
+	font-size: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: -20px;
+	top:110%;
+	left:50%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 30px;
+}
+
+.main-menu .menu{
+	position: relative;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.header .logo{
+	position: relative;
+	margin-left: 5px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.main-menu:hover{
+	background-color: rgb(240, 240, 240);
+	cursor: pointer;
+}
+
+.main-menu:hover span{
+	visibility: visible;
+}
+
+.header .search-box{
+	/*float:right;*/
+	display: flex;
+	position: relative;
+	margin-left: 80px;
+	margin-top: 10px;
+	width: 730px;
+	height: 48px;
+	background-color: rgb(241, 243, 244);
+	border:none;
+	border-radius: 10px;
+}
+
+.search-box .icon{
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	padding-left: 10px;
+	padding-top:10px;
+	margin-left: 10px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.search-box .icon:hover{
+	background-color: rgb(227, 229, 230);
+}
+
+.input input{
+	margin-left: 10px;
+	border:none;
+	background-color: transparent;
+	border-color: rgb(241, 243, 244);
+	/*background-color: red;*/
+	width: 615px;
+	height: 26px;
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+.input input:active{
+	border-color: rgb(241, 243, 244);
+	outline: none;
+}
+
+.input input:focus{
+	border-color: rgb(241, 243, 244);	
+	outline: none;
+}
+
+.search-box .input{
+	border:none;
+	border-color: rgb(241, 243, 244);
+}
+
+.header .right-header{
+	/*float:right;*/
+	position: relative;
+	margin-left: 10px;
+	display: flex;
+}
+
+.right-header .group_one{
+	display: flex;
+	margin-left: 70px;
+	margin-top: 5px;
+}
+
+.group_one .refresh{
+	padding-top: 13px;
+	padding-left: 13px;
+	margin-top: 5px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	/*background-color: green;*/
+}
+
+.group_one .refresh span{
+	visibility: hidden;
+	position: absolute;
+	margin-left: -50px;
+	top:110%;
+	background-color: rgb(50, 50, 50);
+	color: white;
+	width: 70px;
+	border-radius: 10px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+
+}
+
+.group_one .refresh:hover span{
+	visibility: visible;
+}
+
+.group_one .list-view{
+	padding-top: 8px;
+	padding-left: 8px;
+	margin-top: 5px;
+	margin-left: 0px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	/*background-color: red;*/
+}
+
+.group_one .list-view span{
+	visibility: hidden;
+	position: absolute;
+	margin-left: -50px;
+	top:110%;
+	background-color: rgb(50, 50, 50);
+	color: white;
+	width: 78px;
+	border-radius: 10px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+
+}
+
+.group_one .list-view:hover span{
+	visibility: visible;
+}
+
+.group_one .settings{
+	padding-top: 15px;
+	padding-left: 15px;
+	margin-top: 5px;
+	margin-left: 0px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	/*background-color: blue;*/
+}
+
+.group_one .settings span{
+	visibility: hidden;
+	position: absolute;
+	margin-left: -40px;
+	top:110%;
+	background-color: rgb(50, 50, 50);
+	color: white;
+	width: 70px;
+	border-radius: 10px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+
+}
+
+.group_one .settings:hover span{
+	visibility: visible;
+}
+
+.group_one .refresh:hover, .group_one .list-view:hover, .group_one .settings:hover{
+	background-color: rgb(240, 240, 240);
+}
+
+.right-header .group_two{
+	display: flex;
+	margin-left: 20px;
+}
+
+.group_two .dotted-grid{
+	position: relative;
+	margin-top: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	/*background-color: red;*/
+	padding-top: 15px;
+	padding-left: 15px;
+	cursor: pointer;
+}
+
+.group_two .dotted-grid span{
+	visibility: hidden;
+	position: absolute;
+	top:125%;
+	margin-left: -55px;
+	color: white;
+	background-color: rgb(50, 50, 50);
+	font-size: 14px;
+	border-radius: 10px;
+	width: 102px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.group_two .dotted-grid:hover span{
+	visibility: visible;
+}
+
+.group_two .account img{
+	margin-top: 20px;
+	margin-left: 8px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.group_two .account span{
+	visibility: hidden;
+	position: absolute;
+	top:125%;
+	margin-left: -80px;
+	color: white;
+	background-color: rgb(50, 50, 50);
+	font-size: 14px;
+	border-radius: 10px;
+	width: 115px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.group_two .account:hover span{
+	visibility: visible;
+}
+
+.group_two .dotted-grid:hover{
+	background-color: rgb(240, 240, 240);
+}
+
+.main{
+	display: flex;
+}
+
+.main .left-panel{
+	width: 280px;
+	background-color: transparent;
+	height: 475px;
+}
+
+.main .left-panel ul{
+	padding-top:10px;
+}
+
+.left-panel ul li{
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: 48px;
+	width: 100%;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.left-panel ul li:hover{
+	background-color: rgb(241, 243, 244);
+}
+
+.left-panel ul li a{
+	position: relative;
+	margin-left: 20px;
+	margin-top:10px;
+}
+
+.left-panel ul li a img{
+	position: relative;
+	margin-top: 13px;
+}
+
+.left-panel ul li a span{
+	position: absolute;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+#notes{
+	background-color: rgb(254, 239, 195);
+}
+
+.right-panel .note-section{
+	position: relative;
+	margin-top: 30px;
+	margin-left: 170px;
+	width: 600px;
+	min-height: 46px;
+	box-shadow: 1px 1px 8px 0px black;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.right-panel .note-section .before{
+	display: flex;
+	/*height: 55px;*/
+}
+
+
+.note-section .before .text{
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-right: 20px;
+}
+
+.note-section .before .text input{
+	border:none;
+	font-size: 16px;
+	margin-top: 13px;
+	margin-left: 5px;
+	width: 410px;
+}
+
+.note-section .before .text input:active, .note-section .before .text input:focus{
+	outline: none;
+	background-color: transparent;
+}
+
+.note-section .before .list,.note-section .before .drawing,.note-section .before .image{
+	position: relative;
+	width: 45px;
+	height: 45px;
+	margin-left: 5px;
+	border-radius: 50%;
+	background-color: transparent;
+	cursor: pointer;
+	padding-top:13px;
+	padding-left: 13px;
+}
+
+.note-section .before .list span{
+	visibility: hidden;
+	position: absolute;
+	margin-left: -45px;
+	top:110%;
+	background-color: rgb(50, 50, 50);
+	color: white;
+	width: 70px;
+	border-radius: 10px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+}
+
+.note-section .before .drawing span{
+	visibility: hidden;
+	position: absolute;
+	margin-left: -90px;
+	top:110%;
+	background-color: rgb(50, 50, 50);
+	color: white;
+	width: 170px;
+	border-radius: 10px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+}
+
+.note-section .before .image span{
+	visibility: hidden;
+	position: absolute;
+	margin-left: -90px;
+	top:110%;
+	background-color: rgb(50, 50, 50);
+	color: white;
+	width: 160px;
+	border-radius: 10px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+}
+
+.note-section .before .list:hover span,.note-section .before .drawing:hover span,.note-section .before .image:hover span{
+	visibility: visible;
+}
+
+.note-section .before .list:hover,.note-section .before .drawing:hover,.note-section .before .image:hover{
+	background-color: rgb(233, 234, 234);
+}
+
+.note-section .after .text input{
+	border:none;
+	outline: none;
+	font-size: 18px;
+	margin-top: 13px;
+	margin-left: 10px;
+	width: 410px;
+}
+
+.note-section .after .text input:active, .note-section .after .text input:focus{
+	outline: none;
+}
+
+.note-section .after .img{
+	padding-left: 12px;
+	padding-top: 12px;
+	float: right;
+	width: 45px;
+	height: 45px;
+	margin-right: 10px;
+	margin-top: 10px;
+	cursor: pointer;
+	/*background-color: grey;*/
+	border-radius: 50%;
+}
+
+.note-section .after .img span{
+	visibility: hidden;
+	position: absolute;
+	width: 75px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:45%;
+	margin-left:-8%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 30px;
+}
+
+.note-section .after .img:hover span{
+	visibility: visible;
+}
+
+.note-section .after .img:hover{
+	background-color: rgb(233, 234, 234);
+}
+
+.note-section .after .img img{
+	width: 20px;
+	height: 20px;	
+}
+
+.after .text .after_click{
+	float: left;
+	outline: none;
+}
+
+.not-visible{
+	visibility: hidden;
+}
+
+.note-section .note-footer{
+	display: flex;
+}
+
+.note-section .note-footer ul{
+	list-style: none;
+	display: flex;
+	float: left;
+	width: 495px;
+}
+
+.note-section .note-footer ul li{
+	margin-left: 10px;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	/*background-color:grey;*/
+	padding-top: 7px;
+	padding-left: 7px;
+}
+
+.remind-me span{
+	visibility: hidden;
+	position: absolute;
+	width: 92px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:135px;;
+	margin-left:-8%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 20px;	
+}
+
+.remind-me img{
+	width: 15px;
+	height: 15px;
+}
+
+li#collabrate{
+	padding-top: 3px;
+	padding-left: 3px;
+}
+
+.collabrate span{
+	visibility: hidden;
+	position: absolute;
+	width: 82px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:135px;;
+	margin-left:-8%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 20px;
+}
+
+.collabrate img{
+	width: 25px;
+	height: 25px;
+}
+
+.color-pallet span{
+	visibility: hidden;
+	position: absolute;
+	width: 105px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:135px;;
+	margin-left:-8%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 20px;
+}
+
+.color-pallet img{
+	width: 15px;
+	height: 15px;
+}
+
+.album span{
+	visibility: hidden;
+	position: absolute;
+	width: 90px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:135px;;
+	margin-left:-8%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 20px;
+}
+
+.album img{
+	width: 15px;
+	height: 15px;
+}
+
+.archieve span{
+	visibility: hidden;
+	position: absolute;
+	width: 75px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:135px;;
+	margin-left:-8%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 20px;
+}
+
+.archieve img{
+	width: 15px;
+	height: 15px;
+}
+
+.more span{
+	visibility: hidden;
+	position: absolute;
+	width: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:135px;;
+	margin-left: -5%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 20px;
+}
+
+.more img{
+	width: 15px;
+	height: 15px;
+}
+
+.undo span{
+	visibility: hidden;
+	position: absolute;
+	width: 52px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:135px;;
+	margin-left: -5%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 20px;
+}
+
+.undo img{
+	width: 15px;
+	height: 15px;
+}
+
+.redo span{
+	visibility: hidden;
+	position: absolute;
+	width: 52px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+	top:135px;;
+	margin-left: -5%;
+	background-color: rgb(50, 50, 50);
+	border-radius: 5px;
+	color: white;
+	line-height: 20px;
+}
+
+.redo img{
+	width: 15px;
+	height: 15px;
+}
+
+.remind-me:hover span,.collabrate:hover span,.color-pallet:hover span,.album:hover span,.archieve:hover span,.more:hover span,.undo:hover span,.redo:hover span{
+	visibility: visible;
+	z-index = 900;
+}
+
+.note-section .note-footer ul li:hover, .note-footer .close:hover{
+	background-color: rgb(227, 229, 230);
+}
+
+.note-footer .close{
+	font-size: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: relative;
+	margin-bottom: 5px;
+	margin-top: 3px;
+	margin-left: 15px;
+	float: right;
+	cursor: pointer;
+	color: rgb(117, 117, 117);
+}
+
+.listItems{
+	height: 32px;
+	border:none;
+	border-top: solid 1px rgb(117, 117, 117);
+	border-bottom:solid 1px rgb(117, 117, 117);
+	margin-bottom: 2px;
+	font-size: 24px;
+}
+
+.listItems label{
+	color: rgb(117, 117, 117);
+	padding-left: 40px;
+	padding-right: 10px;
+}
+
+.listItems label .listInput{
+	color: rgb(117, 117, 117);
+	padding-right: 20px;
+	padding-left: 20px;	
+	margin-top: -5px;
+	font-weight: bold;
+	border:none;
+	outline: none;
+	margin-bottom: 15px;
+}
+
+.listItems label .listInput:focus, .listItems label .listInput:active{
+	outline: none;
+}
+
+div.dark-theme{
+	position: relative;
+	margin-top: 30px;
+	margin-left: 10px;
+	width: 495px;
+	height: 140px;
+	border: solid 1px rgb(224, 224, 280);
+	border-radius: 10px;
+}
+
+.dark-theme .content{
+	margin-top: 10px;
+	height: 68px;
+	width: 100%;
+}
+
+.dark-theme .content .img img{
+	/*float: left;*/
+	position: absolute;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+}
+
+.dark-theme .content .text{
+	position: relative;
+	margin-left: 90px;
+	margin-right: 10px;
+	font-size: 14px;
+	color: grey;
+}
+
+.dark-theme .footer{
+	margin-top: 15px;
+	margin-left: 350px;
+	display: flex;
+	font-size: 14px;
+	cursor: pointer;
+}
