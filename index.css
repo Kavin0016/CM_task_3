@@ -374,6 +374,7 @@ body{
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
+	overflow: 
 }
 
 .right-panel .note-section .before{
@@ -527,6 +528,10 @@ body{
 
 .not-visible{
 	visibility: hidden;
+}
+
+.visible{
+	visibility: visible;
 }
 
 .note-section .note-footer{
@@ -810,4 +815,70 @@ div.dark-theme{
 	display: flex;
 	font-size: 14px;
 	cursor: pointer;
+}
+
+.listItemAdded{
+	width: 600px;
+	display: flex;
+	height: 34px;
+	border:none;
+	padding-bottom: 5px;
+	/*margin-bottom: 5px;*/
+	font-size: 24px;	
+}
+
+.listItemAdded .checkbox{
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.listItemAdded .checkbox .listItemAdded_Checkbox{
+	cursor: pointer;
+}
+
+.listItemAdded .input{
+	width: 500px;
+}
+
+.listItemAdded .input input.listItemAdded_Input{
+	margin-top: -5px;
+	margin-left: 20px;
+	width: 450px;
+}
+
+.listItemAdded .exit{
+	height:32px;
+	width: 32px;
+	padding-left: 10px;
+	border: none;
+	border-radius: 50%;
+}
+
+.listItemAdded .exit:hover{
+	background-color: rgb(240, 240, 240);
+}
+.listItemAdded .drag_btn{
+	margin-top: 4px;
+	margin-left: 10px;
+	cursor: move;
+}
+
+.listItemAdded .exit .listItemAdded_Close{
+	position: relative;
+	margin-left: 0px;
+	cursor: pointer;
+}
+
+.listItemAdded .drag_btn .drag_icon{
+	width: 22px;
+	height: 22px;
+}
+
+.listItemAdded:hover{
+	border-top: solid 1px rgb(117, 117, 117);
+	border-bottom:solid 1px rgb(117, 117, 117);
+}
+
+.listItemAdded:hover .drag_btn, .listItemAdded:hover .exit{
+	visibility:visible;
 }

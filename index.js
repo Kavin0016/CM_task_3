@@ -1,11 +1,12 @@
 let canRemove = true;
 let show_list = true;
 load();
-
 function load(){
 	document.querySelector('.note-section').addEventListener('click',addTitle);
 	document.querySelector('.image').addEventListener('click',upload);
 	document.querySelector('.list').addEventListener('click',showList);
+	// document.querySelector('.listItems').addEventListener('click',addListItem);
+	// document.querySelector('.listItemAdded').addEventListener('mouseover',visibleDragExit);
 	// let main = document.querySelector('.main').addEventListener('click',removeTitle);
 	// toggleClick.querySelector('.after').addEventListener('click',removeTitle);
 }
@@ -162,11 +163,15 @@ function addTitle(event)
 	}
 	else if(event.target.className == 'close'){
 		parent = document.querySelector('.note-section');
-		if(parent.children[1].className == "listItems"){
+		if((parent.children[1].className == "listItems")||(parent.children[1].className == "listItemAdded")){
 			parent.innerHTML = "";
 			let div_element = createBefore();
 			parent.appendChild(div_element);
 			location.reload();
+			// ==============================
+			// let children = parent.children;
+			// children.remove();
+			// location.reload();
 			return;
 		}
 		parent.removeChild(parent.childNodes[0]);
@@ -269,10 +274,80 @@ function showList(event){
 		div_input.type = "text";
 		div_input.placeholder = "List item";
 		div_input.classList.add('listInput');
+		div_input.style.width = "500px";
 		div_label.innerHTML = "+";
 		div_label.appendChild(div_input);
 		div_listItems.appendChild(div_label);
 		parent.replaceChild(div_listItems, parent.children[1]);
+		document.querySelector('.listItems').addEventListener('click',addListItem);
 		// show_list = (!show_list);
 	}
+}
+
+function addListItem(){
+	parent = document.querySelector('.note-section');
+	div_listItemAdded = document.createElement("div");
+	div_listItemAdded.classList.add('listItemAdded');
+	// ======================== div drag_btn
+	div_listItemAdded_drag_btn = document.createElement("div");
+	div_listItemAdded_drag_btn.classList.add("drag_btn");
+	div_listItemAdded_drag_btn.classList.add("not-visible");
+	div_listItemAdded_drag_btn_img = document.createElement("img");
+	div_listItemAdded_drag_btn_img.classList.add("drag_icon");
+	div_listItemAdded_drag_btn_img.src = "img/drag_icon.png";
+	div_listItemAdded_drag_btn.appendChild(div_listItemAdded_drag_btn_img);
+	// ================================== div checkbox
+	div_listItemAdded_checkbox = document.createElement("div");
+	div_listItemAdded_checkbox.classList.add("checkbox");
+	div_listItemAdded_checkbox_input = document.createElement("input");
+	div_listItemAdded_checkbox_input.type = "checkbox";
+	div_listItemAdded_checkbox_input.classList.add("listItemAdded_Checkbox");
+	div_listItemAdded_checkbox_input.name = "div_listItemAdded_checkbox_input";
+	div_listItemAdded_checkbox.appendChild(div_listItemAdded_checkbox_input);
+	// ====================================== div input
+	div_listItemAdded_input = document.createElement("div");
+	div_listItemAdded_input.classList.add("input");
+	div_listItemAdded_input_input = document.createElement("input");
+	div_listItemAdded_input_input.type = "text";
+	div_listItemAdded_input_input.classList.add("listItemAdded_Input");
+	div_listItemAdded_input_input.name = "listItemAdded_Input";
+	div_listItemAdded_input.appendChild(div_listItemAdded_input_input);
+	// ============================================ div exit
+	div_listItemAdded_exit = document.createElement("div");
+	div_listItemAdded_exit.classList.add("exit");
+	div_listItemAdded_exit.classList.add("not-visible");
+	div_listItemAdded_exit_label = document.createElement("label");
+	div_listItemAdded_exit_label.classList.add("listItemAdded_Close");
+	div_listItemAdded_exit_label.innerText = "x";
+	div_listItemAdded_exit.appendChild(div_listItemAdded_exit_label);
+	// ========================== appending div's
+	div_listItemAdded.appendChild(div_listItemAdded_drag_btn);
+	div_listItemAdded.appendChild(div_listItemAdded_checkbox);
+	div_listItemAdded.appendChild(div_listItemAdded_input);
+	div_listItemAdded.appendChild(div_listItemAdded_exit);
+	// =====================append to parent
+	parent.insertBefore(div_listItemAdded,parent.children[1]);
+	// document.querySelector('.listItemAdded').addEventListener('mouseover',visibleDragExit);
+	// document.querySelector('.listItemAdded').addEventListener('mouseout',dontvisibleDragExit);
+
+}
+
+function visibleDragExit(event){
+	// alert("hi");
+	// let drag_btn = document.querySelector('.drag_btn');
+	if(event.target.className == 'listItemAdded'){
+	let childOne = event.target.children[0];
+	childOne.classList.add('visible');
+	let childTwo = event.target.children[3];
+	childTwo.classList.add('visible');}
+	// let exit = document.querySelector('.exit');
+	// event.target.children[2].classList.toggle('visible');
+}
+
+function dontvisibleDragExit(event){
+	if(event.target.className == 'listItemAdded'){
+	let childOne = event.target.children[0];
+	childOne.classList.remove('visible');
+	let childTwo = event.target.children[3];
+	childTwo.classList.remove('visible');}
 }
