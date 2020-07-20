@@ -364,6 +364,10 @@ body{
 	background-color: rgb(254, 239, 195);
 }
 
+.right-panel{
+	width: 100%;
+}
+
 .right-panel .note-section{
 	position: relative;
 	margin-top: 30px;
@@ -783,6 +787,7 @@ div.dark-theme{
 	height: 140px;
 	border: solid 1px rgb(224, 224, 280);
 	border-radius: 10px;
+	float: left;
 }
 
 .dark-theme .content{
@@ -881,4 +886,30 @@ div.dark-theme{
 
 .listItemAdded:hover .drag_btn, .listItemAdded:hover .exit{
 	visibility:visible;
+}
+
+.img_delete{
+	position: relative;
+	margin-top: -150vw;
+	margin-left: 40vw;
+	width: 30px;
+	height: 30px;
+	z-index: 999;
+	cursor: pointer;
+}
+
+.documentContainer{
+	width: 100%;
+	margin-top: 10px;
+}
+
+.documentBox{
+	width: 25%;
+	height: 80px;
+	float: left;
+	position: relative;
+	margin-top: 30px;
+	margin-left: 10px;
+	border: solid 1px rgb(224, 224, 280);
+	border-radius: 10px;
 }

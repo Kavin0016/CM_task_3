@@ -4,7 +4,8 @@ load();
 function load(){
 	document.querySelector('.note-section').addEventListener('click',addTitle);
 	document.querySelector('.image').addEventListener('click',upload);
-	document.querySelector('.list').addEventListener('click',showList);
+	document.querySelector('.list_icon').addEventListener('click',showList);
+	window.addEventListener('click',storeData);
 	// document.querySelector('.listItems').addEventListener('click',addListItem);
 	// document.querySelector('.listItemAdded').addEventListener('mouseover',visibleDragExit);
 	// let main = document.querySelector('.main').addEventListener('click',removeTitle);
@@ -163,10 +164,12 @@ function addTitle(event)
 	}
 	else if(event.target.className == 'close'){
 		parent = document.querySelector('.note-section');
-		if((parent.children[1].className == "listItems")||(parent.children[1].className == "listItemAdded")){
-			parent.innerHTML = "";
-			let div_element = createBefore();
-			parent.appendChild(div_element);
+		if((parent.children[2].className == "listItems")||(parent.children[2].className == "listItemAdded")){
+			// parent.innerHTML = "";
+			// let div_element = createBefore();
+			// parent.appendChild(div_element);
+			// let img = document.querySelector('#output');
+			// img.remove();
 			location.reload();
 			// ==============================
 			// let children = parent.children;
@@ -174,7 +177,13 @@ function addTitle(event)
 			// location.reload();
 			return;
 		}
+		else
+		{
+		// ============================ Title as children[0]
+		alert("Title children");
 		parent.removeChild(parent.childNodes[0]);
+		parent.removeChild(parent.childNodes[1]);
+		parent.removeChild(parent.childNodes[3]);
 		footer = document.querySelector('.note-footer');
 		footer.remove();
 		list = document.querySelector('.list');
@@ -188,6 +197,7 @@ function addTitle(event)
 		// 	parent.replaceChild(befoeClass,parent.children[1]);
 		// }
 		canRemove = (!canRemove);
+		}
 	}
 
 }
@@ -235,6 +245,8 @@ function createBefore(){
 	div_image_input = document.createElement("input");
 	div_image_input.id = "upload";
 	div_image_input.type = "file";
+	div_image_input.onchange = "loadFile(event)";
+	div_image_input.accept = "image/*";
 	div_image_input.style.display = "none";
 	div_image_span = document.createElement("span");
 	div_image_span.innerHTML = "New notes with image";
@@ -278,8 +290,10 @@ function showList(event){
 		div_label.innerHTML = "+";
 		div_label.appendChild(div_input);
 		div_listItems.appendChild(div_label);
-		parent.replaceChild(div_listItems, parent.children[1]);
+		// alert("show event triggred");
+		parent.replaceChild(div_listItems, parent.children[2]);
 		document.querySelector('.listItems').addEventListener('click',addListItem);
+		return;
 		// show_list = (!show_list);
 	}
 }
@@ -288,6 +302,7 @@ function addListItem(){
 	parent = document.querySelector('.note-section');
 	div_listItemAdded = document.createElement("div");
 	div_listItemAdded.classList.add('listItemAdded');
+	div_listItemAdded.draggable = "true";
 	// ======================== div drag_btn
 	div_listItemAdded_drag_btn = document.createElement("div");
 	div_listItemAdded_drag_btn.classList.add("drag_btn");
@@ -327,6 +342,7 @@ function addListItem(){
 	div_listItemAdded.appendChild(div_listItemAdded_exit);
 	// =====================append to parent
 	parent.insertBefore(div_listItemAdded,parent.children[1]);
+	document.querySelector('.listItemAdded_Close').addEventListener('click',deleteListItemAdded);
 	// document.querySelector('.listItemAdded').addEventListener('mouseover',visibleDragExit);
 	// document.querySelector('.listItemAdded').addEventListener('mouseout',dontvisibleDragExit);
 
@@ -350,4 +366,44 @@ function dontvisibleDragExit(event){
 	childOne.classList.remove('visible');
 	let childTwo = event.target.children[3];
 	childTwo.classList.remove('visible');}
+}
+
+function deleteListItemAdded(event){
+	let parentExit = event.target.parentNode.parentNode;
+	parentExit.remove();
+}
+
+function loadFile(event){
+	let p = document.createElement("p");
+	let img = document.createElement("img");
+	img.id = "output";
+	img.style.width = "100%";
+	img.src = URL.createObjectURL(event.target.files[0]);
+	let img_delete = document.createElement("img");
+	img_delete.classList.add("img_delete");
+	img_delete.src = "img/bin.png";
+	img_delete.addEventListener('click',delete_Output);
+	p.appendChild(img);
+	p.appendChild(img_delete);
+	let parent = document.querySelector('.note-section');
+	parent.insertBefore(p,parent.children[0]);
+}
+
+function delete_Output(event){
+	let parent = event.target.parentNode;
+	parent.remove();
+}
+
+function storeData(event){
+	if(!document.querySelector('.note-section').contains(event.target))
+	{
+			// alert("outside of note-section");
+			if(document.querySelector('.note-section').contains(document.querySelector('.note-footer'))){
+				document.querySelector('.close').click();	
+			}
+	}
+	else{
+
+		// document.querySelector('.close').click();
+	}
 }

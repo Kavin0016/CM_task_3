@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bodyTag">
 	<header class="header">
 		<div class="left-header">
 			<!-- <h1>Begin</h1> -->
@@ -75,6 +75,7 @@
 					<img src="img/push_pin.png" style=""><span>Pin note</span>
 					</div>
 				</div> -->
+				<p><img id="output" style="display: none;" width="600"></p>
 				<div class="before">
 					<div class="text">
 						<input class="input-take-note" type="text-area" placeholder="Take a note...">
@@ -86,7 +87,7 @@
 						<img src="img/paint_brush.png" style="width: 20px;height: 20px;"><span>New notes with drawing</span>
 					</div>
 					<div class="image">
-						<img src="img/album.png" class="upload_image" style="width: 20px;height: 20px;"><input id="upload" type="file" style="display: none;z-index: 9999;"><span>New notes with image</span>
+						<img src="img/album.png" class="upload_image" style="width: 20px;height: 20px;"><input id="upload" type="file" style="display: none;z-index: 9999;" accept="image/*"  onchange="loadFile(event)"><span>New notes with image</span>
 					</div>
 				</div>
 				<!-- <div class="listItemAdded">
@@ -122,6 +123,7 @@
 					</div>
 				</div> -->
 			</div>
+			<div class="documentContainer">
 			<div class="dark-theme">
 			<div class="content">
 				<div class="img">
@@ -136,6 +138,22 @@
 				<span>OK</span>
 				<span style="color: rgb(76, 119, 232);margin-left: 10px;margin-right: 10px;">Turn it on</span>
 			</div>		
+			</div>
+			<div class="documentBox">
+				
+			</div>
+			<div class="documentBox">
+				
+			</div>
+			<div class="documentBox">
+				
+			</div>
+			<div class="documentBox">
+				
+			</div>
+			<div class="documentBox">
+				
+			</div>
 			</div>
 		</div>
 	</div>
