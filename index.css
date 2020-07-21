@@ -730,20 +730,35 @@ li#collabrate{
 	z-index = 900;
 }
 
-.note-section .note-footer ul li:hover, .note-footer .close:hover{
+.note-section .note-footer ul li:hover, .note-footer .close:hover, .note-footer .store:hover{
 	background-color: rgb(227, 229, 230);
 }
 
 .note-footer .close{
 	font-size: 12px;
-	padding-top: 2px;
+	padding-top: 4px;
 	padding-bottom: 2px;
 	padding-left: 10px;
 	padding-right: 10px;
 	position: relative;
 	margin-bottom: 5px;
 	margin-top: 3px;
-	margin-left: 15px;
+	margin-left: -10px;
+	float: right;
+	cursor: pointer;
+	color: rgb(117, 117, 117);
+}
+
+.note-footer .store{
+	font-size: 12px;
+	padding-top: 4px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: relative;
+	margin-bottom: 5px;
+	margin-top: 3px;
+	margin-left: 0px;
 	float: right;
 	cursor: pointer;
 	color: rgb(117, 117, 117);

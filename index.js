@@ -2,10 +2,9 @@ let canRemove = true;
 let show_list = true;
 load();
 function load(){
-	document.querySelector('.note-section').addEventListener('click',addTitle);
+	document.querySelector('.input-take-note').addEventListener('click',addTitle);
 	document.querySelector('.image').addEventListener('click',upload);
 	document.querySelector('.list_icon').addEventListener('click',showList);
-	window.addEventListener('click',storeData);
 	// document.querySelector('.listItems').addEventListener('click',addListItem);
 	// document.querySelector('.listItemAdded').addEventListener('mouseover',visibleDragExit);
 	// let main = document.querySelector('.main').addEventListener('click',removeTitle);
@@ -14,11 +13,19 @@ function load(){
 
 function upload(event)
 {
-	if(event.target.className == "upload_image")
-	{
+	let parent = document.querySelector('.note-section');
+	let p = document.createElement("p");
+	let img = document.createElement("img");
+	img.id = "output";
+	img.style.display = "none";
+	img.style.width = "600";
+	p.appendChild(img);
+	parent.appendChild(p);
+	// if(event.target.className == "upload_image")
+	// {
 		let upload_btn = document.querySelector('#upload');
 		upload_btn.click();
-	}
+	// }
 }
 
 function addTitle(event)
@@ -155,50 +162,58 @@ function addTitle(event)
 		div_close = document.createElement("div");
 		div_close.classList.add("close");
 		div_close.innerHTML = "Close";
+		// div_store
+		div_store = document.createElement("div");
+		div_store.classList.add("store");
+		div_store.innerHTML = "Store";
 		// ==============================================> appending div_close to div_close
 		div_footer.appendChild(div_close);
+		div_footer.appendChild(div_store);
 		// ===================================================> appending Footer to parent
 		parent.insertBefore(div_footer,div_footer.nextSibling);
+		document.querySelector('.close').addEventListener('click',closeBtn);
+		document.querySelector('.store').addEventListener('click',storeData);
 
 		canRemove = (!canRemove);
 	}
-	else if(event.target.className == 'close'){
-		parent = document.querySelector('.note-section');
-		if((parent.children[2].className == "listItems")||(parent.children[2].className == "listItemAdded")){
-			// parent.innerHTML = "";
-			// let div_element = createBefore();
-			// parent.appendChild(div_element);
-			// let img = document.querySelector('#output');
-			// img.remove();
-			location.reload();
-			// ==============================
-			// let children = parent.children;
-			// children.remove();
-			// location.reload();
-			return;
-		}
-		else
-		{
-		// ============================ Title as children[0]
-		alert("Title children");
-		parent.removeChild(parent.childNodes[0]);
-		parent.removeChild(parent.childNodes[1]);
-		parent.removeChild(parent.childNodes[3]);
-		footer = document.querySelector('.note-footer');
-		footer.remove();
-		list = document.querySelector('.list');
-		drawing = document.querySelector('.drawing');
-		image = document.querySelector('.image');
-		list.classList.toggle('not-visible');
-		drawing.classList.toggle('not-visible');
-		image.classList.toggle('not-visible');
-		// if(!show_list){
-		// 	let befoeClass = createBefore();
-		// 	parent.replaceChild(befoeClass,parent.children[1]);
-		// }
-		canRemove = (!canRemove);
-		}
-	}
+	// else if(event.target.className == 'close')
+	// {
+	// 	parent = document.querySelector('.note-section');
+	// 	if((parent.children[2].className == "listItems")||(parent.children[2].className == "listItemAdded")){
+	// 		// parent.innerHTML = "";
+	// 		// let div_element = createBefore();
+	// 		// parent.appendChild(div_element);
+	// 		// let img = document.querySelector('#output');
+	// 		// img.remove();
+	// 		location.reload();
+	// 		// ==============================
+	// 		// let children = parent.children;
+	// 		// children.remove();
+	// 		// location.reload();
+	// 		return;
+	// 	}
+	// 	else
+	// 	{
+	// 	// ============================ Title as children[0]
+	// 	alert("Title children");
+	// 	parent.removeChild(parent.childNodes[0]);
+	// 	parent.removeChild(parent.childNodes[1]);
+	// 	parent.removeChild(parent.childNodes[3]);
+	// 	footer = document.querySelector('.note-footer');
+	// 	footer.remove();
+	// 	list = document.querySelector('.list');
+	// 	drawing = document.querySelector('.drawing');
+	// 	image = document.querySelector('.image');
+	// 	list.classList.toggle('not-visible');
+	// 	drawing.classList.toggle('not-visible');
+	// 	image.classList.toggle('not-visible');
+	// 	// if(!show_list){
+	// 	// 	let befoeClass = createBefore();
+	// 	// 	parent.replaceChild(befoeClass,parent.children[1]);
+	// 	// }
+	// 	canRemove = (!canRemove);
+	// 	}
+	// }
 
 }
 
@@ -291,7 +306,7 @@ function showList(event){
 		div_label.appendChild(div_input);
 		div_listItems.appendChild(div_label);
 		// alert("show event triggred");
-		parent.replaceChild(div_listItems, parent.children[2]);
+		parent.replaceChild(div_listItems, parent.children[1]);
 		document.querySelector('.listItems').addEventListener('click',addListItem);
 		return;
 		// show_list = (!show_list);
@@ -395,15 +410,18 @@ function delete_Output(event){
 }
 
 function storeData(event){
-	if(!document.querySelector('.note-section').contains(event.target))
-	{
-			// alert("outside of note-section");
-			if(document.querySelector('.note-section').contains(document.querySelector('.note-footer'))){
-				document.querySelector('.close').click();	
-			}
-	}
-	else{
+	alert("store clicked");
+}
 
-		// document.querySelector('.close').click();
+function closeBtn(event){
+	let parent = document.querySelector('.note-section');
+	if(parent.children[1].className == "before")
+	{
+		// Task Should Be added
+		// alert("before Class");
+	}
+	else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded"){
+		// Lists Should be added
+		// alert("List class");
 	}
 }
