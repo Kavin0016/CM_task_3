@@ -562,17 +562,19 @@ body{
 
 .remind-me span{
 	visibility: hidden;
-	position: absolute;
-	width: 92px;
-	padding-left: 10px;
-	padding-right: 10px;
+	position: relative;
+	width: 98px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	font-size: 14px;
-	top:135px;;
-	margin-left:-8%;
+	top:10px;;
+	margin-left:-35px;
 	background-color: rgb(50, 50, 50);
 	border-radius: 5px;
 	color: white;
-	line-height: 20px;	
+	line-height: 30px;	
 }
 
 .remind-me img{
@@ -587,17 +589,18 @@ li#collabrate{
 
 .collabrate span{
 	visibility: hidden;
-	position: absolute;
+	position: relative;
 	width: 82px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	font-size: 14px;
-	top:135px;;
-	margin-left:-8%;
+	top:10px;
+	margin-left:-25px;
 	background-color: rgb(50, 50, 50);
 	border-radius: 5px;
 	color: white;
-	line-height: 20px;
 }
 
 .collabrate img{
@@ -607,17 +610,18 @@ li#collabrate{
 
 .color-pallet span{
 	visibility: hidden;
-	position: absolute;
-	width: 105px;
+	position: relative;
+	width: 110px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	font-size: 14px;
-	top:135px;;
-	margin-left:-8%;
+	top:15px;;
+	margin-left:-45px;
 	background-color: rgb(50, 50, 50);
 	border-radius: 5px;
 	color: white;
-	line-height: 20px;
 }
 
 .color-pallet img{
@@ -627,17 +631,18 @@ li#collabrate{
 
 .album span{
 	visibility: hidden;
-	position: absolute;
+	position: relative;
 	width: 90px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	font-size: 14px;
-	top:135px;;
-	margin-left:-8%;
+	top:15px;;
+	margin-left:-35px;
 	background-color: rgb(50, 50, 50);
 	border-radius: 5px;
 	color: white;
-	line-height: 20px;
 }
 
 .album img{
@@ -647,17 +652,18 @@ li#collabrate{
 
 .archieve span{
 	visibility: hidden;
-	position: absolute;
+	position: relative;
 	width: 75px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	font-size: 14px;
-	top:135px;;
-	margin-left:-8%;
+	top:15px;;
+	margin-left:-25px;
 	background-color: rgb(50, 50, 50);
 	border-radius: 5px;
 	color: white;
-	line-height: 20px;
 }
 
 .archieve img{
@@ -667,17 +673,18 @@ li#collabrate{
 
 .more span{
 	visibility: hidden;
-	position: absolute;
+	position: relative;
 	width: 50px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	font-size: 14px;
-	top:135px;;
-	margin-left: -5%;
+	top:15px;;
+	margin-left: -20px;
 	background-color: rgb(50, 50, 50);
 	border-radius: 5px;
 	color: white;
-	line-height: 20px;
 }
 
 .more img{
@@ -687,17 +694,18 @@ li#collabrate{
 
 .undo span{
 	visibility: hidden;
-	position: absolute;
-	width: 52px;
+	position: relative;
+	width: 50px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	font-size: 14px;
-	top:135px;;
-	margin-left: -5%;
+	top:15px;;
+	margin-left: -20px;
 	background-color: rgb(50, 50, 50);
 	border-radius: 5px;
 	color: white;
-	line-height: 20px;
 }
 
 .undo img{
@@ -707,17 +715,18 @@ li#collabrate{
 
 .redo span{
 	visibility: hidden;
-	position: absolute;
+	position: relative;
 	width: 52px;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	font-size: 14px;
-	top:135px;;
-	margin-left: -5%;
+	top:15px;;
+	margin-left: -20px;
 	background-color: rgb(50, 50, 50);
 	border-radius: 5px;
 	color: white;
-	line-height: 20px;
 }
 
 .redo img{
@@ -796,7 +805,7 @@ li#collabrate{
 
 div.dark-theme{
 	position: relative;
-	margin-top: 30px;
+	margin-top: 50px;
 	margin-left: 10px;
 	width: 495px;
 	height: 140px;
@@ -905,7 +914,7 @@ div.dark-theme{
 
 .img_delete{
 	position: relative;
-	margin-top: -150vw;
+	margin-top: -180vw;
 	margin-left: 40vw;
 	width: 30px;
 	height: 30px;
@@ -915,16 +924,176 @@ div.dark-theme{
 
 .documentContainer{
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 0px;
+	transition: 0.5s;
 }
 
 .documentBox{
 	width: 25%;
-	height: 80px;
+	min-height: 45px;
 	float: left;
 	position: relative;
-	margin-top: 30px;
+	margin-top: 50px;
 	margin-left: 10px;
 	border: solid 1px rgb(224, 224, 280);
 	border-radius: 10px;
+	/*overflow: hidden;*/
+}
+
+.documentBox .documentBoxFooter{
+	visibility: hidden;
+	margin-top: 10px;
+	position: relative;
+	margin-bottom: 0px;
+	width: 100%;
+	background-color: transparent;
+	height: 40px;
+	list-style: none;
+	display: flex;
+	float: left;
+	border-radius: 10px;
+}
+
+.documentBox:hover .documentBoxFooter{
+	visibility: visible;
+}
+
+.documentBox .documentBoxFooter li{
+	padding-top: 10px;
+	padding-left: 10px;
+	width: 34px;
+	height: 34px;
+	border:none;
+	border-radius: 50%;
+	background-color: transparent;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.documentBox .documentBoxFooter li img{
+	width: 15px;
+	height: 15px;
+}
+
+.documentBox .documentBoxFooter li.lastLi{
+		margin-left: 40px;
+}
+
+.documentBox .documentBoxFooter li span.remind_me{
+	visibility: hidden;
+	position: absolute;
+	top:110%;
+	width:95px;
+	line-height: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	right:75%;
+	background-color: #222;
+	color: white;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.documentBox .documentBoxFooter li span.collabrate{
+	visibility: hidden;
+	position: absolute;
+	top:110%;
+	width:85px;
+	line-height: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	right:60%;
+	background-color: #222;
+	color: white;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.documentBox .documentBoxFooter li span.color_pallet{
+	visibility: hidden;
+	position: absolute;
+	top:110%;
+	width:108px;
+	line-height: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	right:45%;
+	background-color: #222;
+	color: white;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.documentBox .documentBoxFooter li span.add_image{
+	visibility: hidden;
+	position: absolute;
+	top:110%;
+	width:90px;
+	line-height: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	right:35%;
+	background-color: #222;
+	color: white;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.documentBox .documentBoxFooter li span.archieve{
+	visibility: hidden;
+	position: absolute;
+	top:110%;
+	width:75px;
+	line-height: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	right:23%;
+	background-color: #222;
+	color: white;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.documentBox .documentBoxFooter li span.more{
+	visibility: hidden;
+	position: absolute;
+	top:110%;
+	width:50px;
+	line-height: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	right:1%;
+	background-color: #222;
+	color: white;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.documentBox .documentBoxFooter li:hover span.remind_me,.documentBox .documentBoxFooter li:hover span.collabrate,.documentBox .documentBoxFooter li:hover span.color_pallet,.documentBox .documentBoxFooter li:hover span.add_image,.documentBox .documentBoxFooter li:hover span.archieve,.documentBox .documentBoxFooter li:hover span.more{
+	visibility: visible;
+}
+
+.documentBox .documentBoxFooter li:hover{
+	background-color: rgb(233, 234, 234);	
+}
+
+.image_store{
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.documentBox .tick{
+	visibility: hidden;
+	position: relative;
+	margin-top: -5px;
+	margin-left: -5px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.documentBox:hover .tick{
+	visibility: visible;
 }

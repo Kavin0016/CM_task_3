@@ -4,7 +4,8 @@ load();
 function load(){
 	document.querySelector('.input-take-note').addEventListener('click',addTitle);
 	document.querySelector('.image').addEventListener('click',upload);
-	document.querySelector('.list_icon').addEventListener('click',showList);
+	// document.querySelector('.image').addEventListener('change',loadFile);
+	document.querySelector('.list').addEventListener('click',showList);
 	// document.querySelector('.listItems').addEventListener('click',addListItem);
 	// document.querySelector('.listItemAdded').addEventListener('mouseover',visibleDragExit);
 	// let main = document.querySelector('.main').addEventListener('click',removeTitle);
@@ -13,24 +14,16 @@ function load(){
 
 function upload(event)
 {
-	let parent = document.querySelector('.note-section');
-	let p = document.createElement("p");
-	let img = document.createElement("img");
-	img.id = "output";
-	img.style.display = "none";
-	img.style.width = "600";
-	p.appendChild(img);
-	parent.appendChild(p);
-	// if(event.target.className == "upload_image")
-	// {
+	if(event.target.className == "upload_image")
+	{
 		let upload_btn = document.querySelector('#upload');
 		upload_btn.click();
-	// }
+	}
 }
 
 function addTitle(event)
 {
-	if((canRemove && event.target.className == "input-take-note")||(canRemove && event.target.className == "list_icon"))
+	if((event.target.className == "input-take-note")||(event.target.className == "list_icon"))
 	{
 		// console.log(event.target.className);
 		// Creating Title Part
@@ -72,7 +65,7 @@ function addTitle(event)
 		div_footer_ul_li_remind_me_img = document.createElement("img");
 		div_footer_ul_li_remind_me_img.src = "img/bell3.svg";
 		div_footer_ul_li_remind_me_span = document.createElement("span");
-		div_footer_ul_li_remind_me_span.innerHTML = "Remind Me";
+		div_footer_ul_li_remind_me_span.innerHTML = "Remind&nbsp;Me";
 		// ========> appending remind Me
 		div_footer_ul_li_remind_me.appendChild(div_footer_ul_li_remind_me_img);
 		div_footer_ul_li_remind_me.appendChild(div_footer_ul_li_remind_me_span);
@@ -93,7 +86,7 @@ function addTitle(event)
 		div_footer_ul_li_color_pallet_img = document.createElement("img");
 		div_footer_ul_li_color_pallet_img.src = "img/color_pallet.svg";
 		div_footer_ul_li_color_pallet_span = document.createElement("span");
-		div_footer_ul_li_color_pallet_span.innerHTML = "Change color";
+		div_footer_ul_li_color_pallet_span.innerHTML = "Change&nbsp;color";
 		 // =====================> appending color_pallet
 		 div_footer_ul_li_color_pallet.appendChild(div_footer_ul_li_color_pallet_img);
 		 div_footer_ul_li_color_pallet.appendChild(div_footer_ul_li_color_pallet_span);
@@ -103,7 +96,7 @@ function addTitle(event)
 		div_footer_ul_li_album_img = document.createElement("img");
 		div_footer_ul_li_album_img.src = "img/albumsvg.svg";
 		div_footer_ul_li_album_span = document.createElement("span");
-		div_footer_ul_li_album_span.innerHTML = "Add image";
+		div_footer_ul_li_album_span.innerHTML = "Add&nbsp;image";
 		// ==========================> appending album
 		div_footer_ul_li_album.appendChild(div_footer_ul_li_album_img);
 		div_footer_ul_li_album.appendChild(div_footer_ul_li_album_span);
@@ -173,7 +166,7 @@ function addTitle(event)
 		parent.insertBefore(div_footer,div_footer.nextSibling);
 		document.querySelector('.close').addEventListener('click',closeBtn);
 		document.querySelector('.store').addEventListener('click',storeData);
-
+		document.querySelector('.input-take-note').removeEventListener('click',addTitle);
 		canRemove = (!canRemove);
 	}
 	// else if(event.target.className == 'close')
@@ -226,7 +219,7 @@ function createBefore(){
 	input_text.type = "text";
 	input_text.classList.add("input-take-note");
 	input_text.placeholder = "Take a note...";
-	div_text.appendChild(div_input);
+	div_text.appendChild(input_text);
 	// ==================================================
 	div_list = document.createElement("div");
 	div_list.classList.add("list");
@@ -260,7 +253,7 @@ function createBefore(){
 	div_image_input = document.createElement("input");
 	div_image_input.id = "upload";
 	div_image_input.type = "file";
-	div_image_input.onchange = "loadFile(event)";
+	div_image_input.oninput = "loadFile(event)";
 	div_image_input.accept = "image/*";
 	div_image_input.style.display = "none";
 	div_image_span = document.createElement("span");
@@ -273,6 +266,9 @@ function createBefore(){
 	div_before.appendChild(div_list);
 	div_before.appendChild(div_drawing);
 	div_before.appendChild(div_image);
+	document.querySelector('.input-take-note').addEventListener('click',addTitle);
+	document.querySelector('.image').addEventListener('click',upload);
+	document.querySelector('.list_icon').addEventListener('click',showList);
 	return div_before;
 }
 
@@ -367,61 +363,178 @@ function visibleDragExit(event){
 	// alert("hi");
 	// let drag_btn = document.querySelector('.drag_btn');
 	if(event.target.className == 'listItemAdded'){
-	let childOne = event.target.children[0];
-	childOne.classList.add('visible');
-	let childTwo = event.target.children[3];
-	childTwo.classList.add('visible');}
+		let childOne = event.target.children[0];
+		childOne.classList.add('visible');
+		let childTwo = event.target.children[3];
+		childTwo.classList.add('visible');}
 	// let exit = document.querySelector('.exit');
 	// event.target.children[2].classList.toggle('visible');
 }
 
-function dontvisibleDragExit(event){
-	if(event.target.className == 'listItemAdded'){
-	let childOne = event.target.children[0];
-	childOne.classList.remove('visible');
-	let childTwo = event.target.children[3];
-	childTwo.classList.remove('visible');}
-}
+	function deleteListItemAdded(event){
+		let parentExit = event.target.parentNode.parentNode;
+		parentExit.remove();
+	}
 
-function deleteListItemAdded(event){
-	let parentExit = event.target.parentNode.parentNode;
-	parentExit.remove();
-}
+	function loadFile(event){
+		let p = document.createElement("p");
+		// p.style.display = "flex";
+		// let div = document.createElement("div");
+		// div.classList.add("image_div");
+		let img = document.createElement("img");
+		img.id = "output";
+		img.style.width = "100%";
+		img.src = URL.createObjectURL(event.target.files[0]);
+		let img_delete = document.createElement("img");
+		img_delete.classList.add("img_delete");
+		img_delete.src = "img/bin.png";
+		img_delete.addEventListener('click',delete_Output);
+		let p_store = document.createElement("p");
+		p_store.classList.add("image_store");
+		p_store.innerText = "store";
+		p.appendChild(img);
+		p.appendChild(img_delete);
+		p.appendChild(p_store);
+		let parent = document.querySelector('.note-section');
+		parent.insertBefore(p,parent.children[0]);
+		p_store.addEventListener('click',storeData);
+	}
 
-function loadFile(event){
-	let p = document.createElement("p");
-	let img = document.createElement("img");
-	img.id = "output";
-	img.style.width = "100%";
-	img.src = URL.createObjectURL(event.target.files[0]);
-	let img_delete = document.createElement("img");
-	img_delete.classList.add("img_delete");
-	img_delete.src = "img/bin.png";
-	img_delete.addEventListener('click',delete_Output);
-	p.appendChild(img);
-	p.appendChild(img_delete);
-	let parent = document.querySelector('.note-section');
-	parent.insertBefore(p,parent.children[0]);
-}
+	function delete_Output(event){
+		let parent = event.target.parentNode;
+		parent.remove();
+	}
 
-function delete_Output(event){
-	let parent = event.target.parentNode;
-	parent.remove();
-}
+	function storeData(event){
+		let parent = document.querySelector('.note-section');
+		if(parent.children[0].id == "output"){
+			alert("image");
+		}
+		else if(parent.children[1].className == "before")
+		{
+			alert("Before Class");
+		let documentBox = createDocumentBox();
+		let documentContainer = document.querySelector('.documentContainer');
+		documentContainer.appendChild(documentBox);
+		document.querySelector('.close').click();
+		}
+		else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded")
+		{
+			alert("List class");
+			document.querySelector('.close').click();
+		}
+	}
 
-function storeData(event){
-	alert("store clicked");
-}
-
-function closeBtn(event){
-	let parent = document.querySelector('.note-section');
-	if(parent.children[1].className == "before")
-	{
+	function closeBtn(event){
+		let parent = document.querySelector('.note-section');
+		if(parent.children[1].className == "before")
+		{
 		// Task Should Be added
 		// alert("before Class");
+		// let beforeClass = createBefore()
+		// parent.innerHTML = "";
+		// parent.appendChild(beforeClass);
+		parent.children[0].remove();
+		parent.children[1].remove();
+		list = document.querySelector('.list');
+		drawing = document.querySelector('.drawing');
+		image = document.querySelector('.image');
+		list.classList.toggle('not-visible');
+		drawing.classList.toggle('not-visible');
+		image.classList.toggle('not-visible');
+		document.querySelector('.input-take-note').addEventListener('click',addTitle);
+
 	}
 	else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded"){
 		// Lists Should be added
 		// alert("List class");
+		parent.innerHTML = '<div class="before"><div class="text"><input class="input-take-note" type="text-area" placeholder="Take a note..."></div><div class="list"><img class="list_icon" src="img/checkbox.png" style="width: 20px;height: 20px;"><span>New list</span></div><div class="drawing"><img src="img/paint_brush.png" style="width: 20px;height: 20px;"><span>New notes with drawing</span></div><div class="image"><img src="img/album.png" class="upload_image" style="width: 20px;height: 20px;"><input id="upload" type="file" style="display: none;z-index: 9999;" accept="image"  oninput="loadFile(event)"><span>New notes with image</span></div></div>';
+		document.querySelector('.input-take-note').addEventListener('click',addTitle);
+		document.querySelector('.image').addEventListener('click',upload);
+		document.querySelector('.list_icon').addEventListener('click',showList);		
 	}
+}
+
+function createDocumentBox(){
+	let parent = document.createElement("div");
+	parent.classList.add("documentBox");
+	let div_tick = document.createElement("div");
+	div_tick.classList.add('tick');
+	div_tick_img = document.createElement("img");
+	div_tick_img.src = "img/tick.svg";
+	div_tick.appendChild(div_tick_img);
+	let footer = document.createElement("div");
+	footer.classList.add("documentBoxFooter");
+	// ============================== LI Remind
+	let li_remind = document.createElement("li");
+	let li_remind_img = document.createElement("img");
+	li_remind_img.src = "img/bell3.svg";
+	let li_remind_span = document.createElement("span");
+	li_remind_span.classList.add("remind_me");
+	li_remind_span.innerText = "Remind Me";
+	li_remind.appendChild(li_remind_img);
+	li_remind.appendChild(li_remind_span);
+	// ================================= LI Collabrate
+	let li_collabrate = document.createElement("li");
+	let li_collabrate_img = document.createElement("img");
+	 li_collabrate_img.src = "img/collabrate.png";
+	 li_collabrate_img.style.width = "25px";
+	 li_collabrate_img.style.height = "25px";
+	 li_collabrate_img.style.padding = "0px";
+	 li_collabrate_img.style.marginLeft = "-5px";
+	 li_collabrate_img.style.marginTop = "-5px";
+	 let li_collabrate_span = document.createElement("span");
+	 li_collabrate_span.classList.add("collabrate");
+	 li_collabrate_span.innerText = "Collabrate";
+	 li_collabrate.appendChild(li_collabrate_img);
+	 li_collabrate.appendChild(li_collabrate_span);
+	 // ====================================== LI Change color
+	 let li_change_color = document.createElement("li");
+	 let li_change_color_img = document.createElement("img");
+	 li_change_color_img.src = "img/color_pallet.svg";
+	 let li_change_color_span  = document.createElement("span");
+	 li_change_color_span.classList.add("color_pallet");
+	 li_change_color_span.innerText = "Change color";
+	 li_change_color.appendChild(li_change_color_img);
+	 li_change_color.appendChild(li_change_color_span);
+	 // ============================================= LI Add Image
+	 let li_add_image = document.createElement("li");
+	 let li_add_image_img = document.createElement("img");
+	 li_add_image_img.src = "img/albumsvg.svg";
+	 let li_add_image_span  = document.createElement("span");
+	 li_add_image_span.classList.add("add_image");
+	 li_add_image_span.innerText = "Add image";
+	 li_add_image.appendChild(li_add_image_img);
+	 li_add_image.appendChild(li_add_image_span);
+	 // ============================================== LI Archieve
+	 let li_archieve = document.createElement("li");
+	 let li_archieve_img = document.createElement("img");
+	 li_archieve_img.src = "img/archieve.png";
+	 let li_archieve_span  = document.createElement("span");
+	 li_archieve_span.classList.add("archieve");
+	 li_archieve_span.innerText = "Archieve";
+	 li_archieve.appendChild(li_archieve_img);
+	 li_archieve.appendChild(li_archieve_span);
+	 // ============================================= LI More
+	 let li_more = document.createElement("li");
+	 li_more.classList.add("lastLi");
+	 let li_more_img = document.createElement("img");
+	 li_more_img.src = "img/vertical_dots.png";
+	 let li_more_span = document.createElement("span");
+	 li_more_span.classList.add("more");
+	 li_more_span.innerText = "More";
+	 li_more.appendChild(li_more_img);
+	 li_more.appendChild(li_more_span);
+	 // ====================================== Appending to footer
+	 footer.appendChild(li_remind);
+	 footer.appendChild(li_collabrate);
+	 footer.appendChild(li_change_color);
+	 footer.appendChild(li_add_image);
+	 footer.appendChild(li_archieve);
+	 footer.appendChild(li_more);
+	 // ================================== Appending div's to parent
+	 parent.appendChild(div_tick);
+	 parent.appendChild(footer);
+	 return parent;
+
 }
