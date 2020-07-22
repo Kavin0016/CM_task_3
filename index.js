@@ -407,13 +407,38 @@ function visibleDragExit(event){
 
 	function storeData(event){
 		let parent = document.querySelector('.note-section');
-		if(parent.children[0].id == "output"){
-			alert("image");
+		if(parent.contains(document.querySelector("#output"))){
+			alert("image upload");
+			let documentContainer = document.querySelector('.documentContainer');
+			let documentBox = createDocumentBox();
+			let img = document.createElement("img");
+			img.style.width = "100%";
+			img.src = document.querySelector("#output").src;
+			documentBox.insertBefore(img,documentBox.children[1]);
+			documentContainer.appendChild(documentBox);
+			let p = event.target.parentNode;
+			p.remove();
+			// document.querySelector('.image_delete').click();
 		}
 		else if(parent.children[1].className == "before")
 		{
-			alert("Before Class");
+		alert("Before Class");
 		let documentBox = createDocumentBox();
+		//=================================================================================================================//
+		let title = document.querySelector('.after_click').value;
+		let content = document.querySelector('.input-take-note').value;
+		let div =document.createElement("div");
+		let div_p_title = document.createElement("P");
+		div_p_title.innerText = title;
+		div_p_title.classList.add("documentBoxTitle");
+		div.appendChild(div_p_title);
+		let div_p_content = document.createElement("p");
+		div_p_content.classList.add("documentBoxContent");
+		div_p_content.innerText = content;
+		div.appendChild(div_p_title);
+		div.appendChild(div_p_content);
+		//=================================================================================================================//
+		documentBox.insertBefore(div,documentBox.children[1]);
 		let documentContainer = document.querySelector('.documentContainer');
 		documentContainer.appendChild(documentBox);
 		document.querySelector('.close').click();
@@ -443,6 +468,7 @@ function visibleDragExit(event){
 		drawing.classList.toggle('not-visible');
 		image.classList.toggle('not-visible');
 		document.querySelector('.input-take-note').addEventListener('click',addTitle);
+		document.querySelector('.input-take-note').value = "";
 
 	}
 	else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded"){
@@ -451,7 +477,8 @@ function visibleDragExit(event){
 		parent.innerHTML = '<div class="before"><div class="text"><input class="input-take-note" type="text-area" placeholder="Take a note..."></div><div class="list"><img class="list_icon" src="img/checkbox.png" style="width: 20px;height: 20px;"><span>New list</span></div><div class="drawing"><img src="img/paint_brush.png" style="width: 20px;height: 20px;"><span>New notes with drawing</span></div><div class="image"><img src="img/album.png" class="upload_image" style="width: 20px;height: 20px;"><input id="upload" type="file" style="display: none;z-index: 9999;" accept="image"  oninput="loadFile(event)"><span>New notes with image</span></div></div>';
 		document.querySelector('.input-take-note').addEventListener('click',addTitle);
 		document.querySelector('.image').addEventListener('click',upload);
-		document.querySelector('.list_icon').addEventListener('click',showList);		
+		document.querySelector('.list_icon').addEventListener('click',showList);
+		document.querySelector('.input-take-note').value = "";		
 	}
 }
 

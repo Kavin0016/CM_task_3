@@ -937,7 +937,7 @@ div.dark-theme{
 	margin-left: 10px;
 	border: solid 1px rgb(224, 224, 280);
 	border-radius: 10px;
-	/*overflow: hidden;*/
+	overflow-wrap: break-word;
 }
 
 .documentBox .documentBoxFooter{
@@ -1058,7 +1058,7 @@ div.dark-theme{
 	visibility: hidden;
 	position: absolute;
 	top:110%;
-	width:50px;
+	width:55px;
 	line-height: 25px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -1096,4 +1096,21 @@ div.dark-theme{
 
 .documentBox:hover .tick{
 	visibility: visible;
+}
+
+.documentBoxTitle{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	font-family: NotoSansSC, sans-serif;
+	font-size: 16px;
+}
+
+.documentBoxContent{
+	padding-left: 10px;
+	padding-right: 10px;
+	font-family: NotoSansSC, sans-serif;
+	font-size: 14px;
 }
