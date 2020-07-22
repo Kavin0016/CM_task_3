@@ -12,7 +12,7 @@ function load(){
 	// toggleClick.querySelector('.after').addEventListener('click',removeTitle);
 }
 
-function upload(event)
+function upload(wvent)
 {
 	if(event.target.className == "upload_image")
 	{
