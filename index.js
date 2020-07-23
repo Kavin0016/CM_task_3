@@ -7,9 +7,6 @@ function load(){
 	// document.querySelector('.image').addEventListener('change',loadFile);
 	document.querySelector('.list').addEventListener('click',showList);
 	// document.querySelector('.listItems').addEventListener('click',addListItem);
-	// document.querySelector('.listItemAdded').addEventListener('mouseover',visibleDragExit);
-	// let main = document.querySelector('.main').addEventListener('click',removeTitle);
-	// toggleClick.querySelector('.after').addEventListener('click',removeTitle);
 }
 
 function upload(wvent)
@@ -272,20 +269,6 @@ function createBefore(){
 	return div_before;
 }
 
-// function removeTitle(event){
-// 	if(!canRemove){
-// 		parent = document.querySelector('.note-section');
-// 		parent.removeChild(parent.childNodes[0]);
-// 		list = document.querySelector('.list');
-// 		drawing = document.querySelector('.drawing');
-// 		image = document.querySelector('.image');
-// 		list.classList.toggle('not-visible');
-// 		drawing.classList.toggle('not-visible');
-// 		image.classList.toggle('not-visible');
-// 		canRemove = (!canRemove);
-// 	}
-// }
-
 function showList(event){
 	if(event.target.className == "list_icon"){
 		addTitle(event);
@@ -303,13 +286,17 @@ function showList(event){
 		div_listItems.appendChild(div_label);
 		// alert("show event triggred");
 		parent.replaceChild(div_listItems, parent.children[1]);
-		document.querySelector('.listItems').addEventListener('click',addListItem);
+		document.querySelector('.listInput').addEventListener('keypress',addListItem);
 		return;
 		// show_list = (!show_list);
 	}
 }
 
 function addListItem(){
+	if(!(document.querySelector('.listInput').value == ""))
+	{
+	let text_value = document.querySelector('.listInput').value;
+	document.querySelector('.listInput').value = "";
 	parent = document.querySelector('.note-section');
 	div_listItemAdded = document.createElement("div");
 	div_listItemAdded.classList.add('listItemAdded');
@@ -335,6 +322,7 @@ function addListItem(){
 	div_listItemAdded_input.classList.add("input");
 	div_listItemAdded_input_input = document.createElement("input");
 	div_listItemAdded_input_input.type = "text";
+	div_listItemAdded_input_input.value = text_value;
 	div_listItemAdded_input_input.classList.add("listItemAdded_Input");
 	div_listItemAdded_input_input.name = "listItemAdded_Input";
 	div_listItemAdded_input.appendChild(div_listItemAdded_input_input);
@@ -354,8 +342,7 @@ function addListItem(){
 	// =====================append to parent
 	parent.insertBefore(div_listItemAdded,parent.children[1]);
 	document.querySelector('.listItemAdded_Close').addEventListener('click',deleteListItemAdded);
-	document.querySelector('.listItemAdded_Checkbox').addEventListener('click',lineThrough);
-	// document.querySelector('.listItemAdded').addEventListener('mouseout',dontvisibleDragExit);
+	}
 
 }
 
@@ -369,18 +356,6 @@ function lineThroughDocument(event){
 	let label = event.target.nextElementSibling;
 	console.log("check box clicked");
 	label.classList.toggle("lineThrough");
-}
-
-function visibleDragExit(event){
-	// alert("hi");
-	// let drag_btn = document.querySelector('.drag_btn');
-	if(event.target.className == 'listItemAdded'){
-		let childOne = event.target.children[0];
-		childOne.classList.add('visible');
-		let childTwo = event.target.children[3];
-		childTwo.classList.add('visible');}
-	// let exit = document.querySelector('.exit');
-	// event.target.children[2].classList.toggle('visible');
 }
 
 	function deleteListItemAdded(event){
@@ -434,7 +409,8 @@ function visibleDragExit(event){
 		}
 		else if(parent.children[1].className == "before")
 		{
-		alert("Before Class");
+		if(!(document.querySelector('.after_click').value == "") || !(document.querySelector('.input-take-note').value == ""))
+		{	
 		let documentBox = createDocumentBox();
 		//=================================================================================================================//
 		let title = document.querySelector('.after_click').value;
@@ -453,6 +429,7 @@ function visibleDragExit(event){
 		documentBox.insertBefore(div,documentBox.children[1]);
 		let documentContainer = document.querySelector('.documentContainer');
 		documentContainer.appendChild(documentBox);
+		}
 		document.querySelector('.close').click();
 		}
 		else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded")
@@ -471,7 +448,11 @@ function visibleDragExit(event){
 			documentBox.insertBefore(div_documentBody,documentBox.children[1]);
 			let documentContainer = document.querySelector('.documentContainer');
 			documentContainer.appendChild(documentBox);
-			document.querySelector('.documentContentCheckBox').addEventListener('click',lineThroughDocument);
+			let CheckBoxes = document.querySelectorAll('.documentContentCheckBox');
+			for(i=0;i<CheckBoxes.length;i++)
+			{
+				CheckBoxes[i].addEventListener('click',lineThroughDocument);
+			}
 			document.querySelector('.close').click();
 		}
 	}
@@ -592,15 +573,28 @@ function createDocumentBox(){
 
 }
 
-function createDocumentContent(){
+function createDocumentContent()
+{
+	let parent = document.createElement("div");
+	let inputs = document.querySelectorAll('.listItemAdded_Input');
+	let checkboxs = document.querySelectorAll('.listItemAdded_Checkbox');
+	let input_count = inputs.length;
+	for(i=0;i<input_count;i++)
+	{
 	let div_documentContent = document.createElement("div");
 	div_documentContent.classList.add("documentContent");
 	div_documentContent_input = document.createElement("input");
 	div_documentContent_input.type = "checkbox";
 	div_documentContent_input.classList.add("documentContentCheckBox");
+	div_documentContent_input.checked = checkboxs[i].checked;
 	div_documentContent_label = document.createElement("label");
-	div_documentContent_label.innerText = "label 1";
+	div_documentContent_label.innerText = inputs[i].value;
+	if(checkboxs[i].checked){
+		div_documentContent_label.classList.add("lineThrough");
+	}
 	div_documentContent.appendChild(div_documentContent_input);
 	div_documentContent.appendChild(div_documentContent_label);
-	return div_documentContent;
+	parent.appendChild(div_documentContent)
+	}
+	return parent;
 }
