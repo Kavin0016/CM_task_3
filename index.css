@@ -942,7 +942,7 @@ div.dark-theme{
 
 .documentBox .documentBoxFooter{
 	visibility: hidden;
-	margin-top: 10px;
+	margin-top:0px;
 	position: relative;
 	margin-bottom: 0px;
 	width: 100%;
@@ -1113,4 +1113,41 @@ div.dark-theme{
 	padding-right: 10px;
 	font-family: NotoSansSC, sans-serif;
 	font-size: 14px;
+}
+
+.lineThrough{
+	text-decoration: line-through;
+}
+
+.documentBox .documentBody{
+	position: relative;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 100%;
+	font-family: sans-serif;
+}
+
+.documentBox .documentBody .title{
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px;
+	font-family: inherit;
+}
+
+.documentBox .documentBody .documentContent{
+	position: relative;
+	display: flex;
+	padding: 10px;
+	padding-top: 0px;
+	font-size: 14px;
+	font-family: inherit;
+}
+
+.documentBox .documentBody .documentContent input{
+	cursor: pointer;
+}
+
+.documentBox .documentBody .documentContent label{
+	padding-left: 10px;
+	font-family: inherit;
 }

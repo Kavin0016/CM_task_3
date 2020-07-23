@@ -354,9 +354,21 @@ function addListItem(){
 	// =====================append to parent
 	parent.insertBefore(div_listItemAdded,parent.children[1]);
 	document.querySelector('.listItemAdded_Close').addEventListener('click',deleteListItemAdded);
-	// document.querySelector('.listItemAdded').addEventListener('mouseover',visibleDragExit);
+	document.querySelector('.listItemAdded_Checkbox').addEventListener('click',lineThrough);
 	// document.querySelector('.listItemAdded').addEventListener('mouseout',dontvisibleDragExit);
 
+}
+
+function lineThrough(event){
+	let check_div = event.target.parentNode
+	let inner_check = check_div.nextSibling;
+	inner_check.children[0].classList.toggle("lineThrough");
+}
+
+function lineThroughDocument(event){
+	let label = event.target.nextElementSibling;
+	console.log("check box clicked");
+	label.classList.toggle("lineThrough");
 }
 
 function visibleDragExit(event){
@@ -446,6 +458,20 @@ function visibleDragExit(event){
 		else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded")
 		{
 			alert("List class");
+			let title = document.querySelector('.after_click').value;
+			let div_documentBody = document.createElement("div");
+			div_documentBody.classList.add("documentBody");
+			div_documentBody_P_title = document.createElement("p");
+			div_documentBody_P_title.classList.add("title");
+			div_documentBody_P_title.innerText = title;
+			let div_documentContent = createDocumentContent();
+			div_documentBody.appendChild(div_documentBody_P_title);
+			div_documentBody.appendChild(div_documentContent);
+			let documentBox = createDocumentBox();
+			documentBox.insertBefore(div_documentBody,documentBox.children[1]);
+			let documentContainer = document.querySelector('.documentContainer');
+			documentContainer.appendChild(documentBox);
+			document.querySelector('.documentContentCheckBox').addEventListener('click',lineThroughDocument);
 			document.querySelector('.close').click();
 		}
 	}
@@ -564,4 +590,17 @@ function createDocumentBox(){
 	 parent.appendChild(footer);
 	 return parent;
 
+}
+
+function createDocumentContent(){
+	let div_documentContent = document.createElement("div");
+	div_documentContent.classList.add("documentContent");
+	div_documentContent_input = document.createElement("input");
+	div_documentContent_input.type = "checkbox";
+	div_documentContent_input.classList.add("documentContentCheckBox");
+	div_documentContent_label = document.createElement("label");
+	div_documentContent_label.innerText = "label 1";
+	div_documentContent.appendChild(div_documentContent_input);
+	div_documentContent.appendChild(div_documentContent_label);
+	return div_documentContent;
 }
