@@ -395,7 +395,7 @@ function lineThroughDocument(event){
 	function storeData(event){
 		let parent = document.querySelector('.note-section');
 		if(parent.contains(document.querySelector("#output"))){
-			alert("image upload");
+			// alert("image upload");
 			let documentContainer = document.querySelector('.documentContainer');
 			let documentBox = createDocumentBox();
 			let img = document.createElement("img");
@@ -434,7 +434,7 @@ function lineThroughDocument(event){
 		}
 		else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded")
 		{
-			alert("List class");
+			// alert("List class");
 			let title = document.querySelector('.after_click').value;
 			let div_documentBody = document.createElement("div");
 			div_documentBody.classList.add("documentBody");
