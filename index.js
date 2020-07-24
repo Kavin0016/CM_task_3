@@ -1,12 +1,33 @@
 let canRemove = true;
 let show_list = true;
 load();
+loadImg();
 function load(){
 	document.querySelector('.input-take-note').addEventListener('click',addTitle);
 	document.querySelector('.image').addEventListener('click',upload);
 	// document.querySelector('.image').addEventListener('change',loadFile);
 	document.querySelector('.list').addEventListener('click',showList);
 	// document.querySelector('.listItems').addEventListener('click',addListItem);
+}
+
+function loadImg(){
+	document.querySelector('.upload_image').src = "img/album.png";
+	document.querySelector('.drawingImg').src = "img/paint_brush.png";
+	document.querySelector('.list_icon').src = "img/checkbox.png";
+	document.querySelector('.left_Bin').src = "img/bin2.png";
+	document.querySelector('.left_Archieve').src = "img/archieve.png";
+	document.querySelector('.left_Edit').src = "img/pen2.png";
+	document.querySelector('.left_Reminder').src = "img/bell.png";
+	document.querySelector('.left_Notes').src = "img/bulb.png";
+	document.querySelector('.right_Account').src = "img/profile_logo.jpg";
+	document.querySelector('.right_Grid').src = "img/dotted-grid.jpg";
+	document.querySelector('.right_Settings').src = "img/settings.png";
+	document.querySelector('.right_List').src = "img/list-view.png";
+	document.querySelector('.right_Refresh').src = "img/refresh.png";
+	document.querySelector('.search_Icon').src = "img/search.png";
+	document.querySelector('.logo').src = "img/keep_icon.png";
+	document.querySelector('.menu').src = "img/main-menu.png";
+	document.querySelector('.img_Dark').src = "img/dark_theme.png";
 }
 
 function upload(wvent)

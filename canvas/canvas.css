@@ -1,0 +1,96 @@
+header{
+	height: 56px;
+	width: 1355px;
+	padding-bottom: 10px;
+	border-bottom: solid 1px rgb(186, 186, 186);
+}
+
+.toolbar-begin{
+	width: 478px;
+	height: 39px;
+	float: left;
+	list-style: none;
+	display: flex;
+}
+
+.toolbar-begin .static-icon{
+	width: 38px;
+	height: 40px;
+	padding: 0px 7px;
+	display: flex;
+	margin-left: 15px;
+}
+
+.toolbar-begin .static-icon-non-arrow,.toolbar-end .static-icon-non-arrow{
+	width: 38px;
+	height: 40px;
+	padding: 0px 7px;
+	display: flex;
+}
+
+.toolbar-begin .static-icon-non-arrow .backArrow, .toolbar-begin .static-icon-non-arrow .dottedSquare, .toolbar-begin .static-icon .eraser, .toolbar-begin .static-icon .pen_one, .toolbar-begin .static-icon .pen_two, .toolbar-begin .static-icon .pen_three, .toolbar-begin .static-icon .grid{
+	padding-top: 8px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.toolbar-begin .static-icon .pen_one{
+	width: 24px;
+	height: 24px;
+	padding-left: 5px;
+}
+
+.static-icon .arrow{
+	margin: 0px;
+	margin-top: 0px;
+	padding-top: 13px;
+	padding-bottom: 15px;
+	padding-left: 2px;
+	padding-right: 2px;
+	/*display: inline-flex;*/
+	border:none;
+	width: 10px;
+	height: 10px;
+
+}
+
+.toolbar-begin .static-icon-non-arrow:hover .backArrow, .toolbar-begin .static-icon-non-arrow:hover .dottedSquare{
+	border: solid 1px rgb(229, 229, 229);
+}
+
+.toolbar-begin .static-icon:hover .eraser, .toolbar-begin .static-icon:hover .pen_one, .toolbar-begin .static-icon:hover .pen_two, .toolbar-begin .static-icon:hover .pen_three, .toolbar-begin .static-icon:hover .grid{
+	border: solid 1px rgb(229, 229, 229);
+	border-right: none;
+}
+
+.toolbar-begin .static-icon:hover .arrow, .toolbar-begin .static-icon:hover .arrow, .toolbar-begin .static-icon:hover .arrow, .toolbar-begin .static-icon:hover .arrow, .toolbar-begin .static-icon:hover .arrow{
+	border: solid 1px rgb(229, 229, 229);
+	cursor: pointer;
+}
+
+
+.toolbar-end{
+	width: 236px;
+	height: 39px;
+	float: right;
+	list-style: none;
+	display: flex;
+}
+
+.toolbar-end .static-icon-non-arrow .undo,.toolbar-end .static-icon-non-arrow .redo,.toolbar-end .static-icon-non-arrow .expand,.toolbar-end .static-icon-non-arrow .more{
+	padding-top: 8px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+/*#drawingPanel{
+	overflow-x: hidden;
+}*/

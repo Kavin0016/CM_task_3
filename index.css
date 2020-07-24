@@ -28,6 +28,15 @@ body{
 	margin-bottom: 10px;
 }
 
+.header .left-header .title_Text{
+	font-weight:400;
+	font-family: sans-serif;
+	color: rgb(95, 99, 128);
+	margin-left: 5px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+
 .left-header .main-menu{
 	display: flex;
 	position: relative;
@@ -59,6 +68,8 @@ body{
 	position: relative;
 	margin-left: 15px;
 	margin-top: 15px;
+	width: 20px;
+	height: 20px;
 }
 
 .header .logo{
@@ -66,6 +77,8 @@ body{
 	margin-left: 5px;
 	margin-top: 10px;
 	cursor: pointer;
+	width: 40px;
+	height: 40px;
 }
 
 .main-menu:hover{
@@ -99,6 +112,10 @@ body{
 	margin-left: 10px;
 	margin-top: 5px;
 	cursor: pointer;
+}
+
+.search-box .icon .search_Icon{
+	width: 18px;
 }
 
 .search-box .icon:hover{
@@ -220,6 +237,11 @@ body{
 	/*background-color: blue;*/
 }
 
+.group_one .settings .right_Settings{
+	width: 22px;
+	height: 22px;
+}
+
 .group_one .settings span{
 	visibility: hidden;
 	position: absolute;
@@ -234,6 +256,16 @@ body{
 	padding-right: 10px;
 	font-size: 14px;
 
+}
+
+.group_one .list-view .right_List{
+	width: 35px;
+	height: 35px;
+}
+
+.group_one .refresh .right_Refresh{
+	width: 25px;
+	height: 25px;
 }
 
 .group_one .settings:hover span{
@@ -259,6 +291,11 @@ body{
 	padding-top: 15px;
 	padding-left: 15px;
 	cursor: pointer;
+}
+
+.group_two .dotted-grid .right_Grid{
+	width: 22px;
+	height: 22px;
 }
 
 .group_two .dotted-grid span{
@@ -360,6 +397,31 @@ body{
 	margin-left: 20px;
 }
 
+.left-panel .left_Bin{
+	width: 20px;
+	height: 20px;
+}
+
+.left-panel .left_Archieve{
+	width: 20px;
+	height: 20px;
+}
+
+.left-panel .left_Edit{
+	width: 20px;
+	height: 20px;
+}
+
+.left-panel .left_Reminder{
+	width: 20px;
+	height: 20px;
+}
+
+.left-panel .left_Notes{
+	width: 20px;
+	height: 20px;
+}
+
 #notes{
 	background-color: rgb(254, 239, 195);
 }
@@ -418,6 +480,22 @@ body{
 	padding-left: 13px;
 }
 
+.note-section .before .list .list_icon{
+	width: 20px;
+	height: 20px;
+}
+
+.note-section .before .image .upload_image{
+	background: url(img/album.png) no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+.note-section .before .image input{
+	display: none;
+	z-index: 9999;
+}
+
 .note-section .before .list span{
 	visibility: hidden;
 	position: absolute;
@@ -446,6 +524,11 @@ body{
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 14px;
+}
+
+.note-section .before .drawing .drawingImg{
+	width: 20px;
+	height: 20px;
 }
 
 .note-section .before .image span{
@@ -820,14 +903,14 @@ div.dark-theme{
 	width: 100%;
 }
 
-.dark-theme .content .img img{
+.dark-theme .content .img{
 	/*float: left;*/
 	position: absolute;
 	margin-left: 10px;
 	margin-right: 10px;
 	height: 64px;
 	width: 64px;
-	border-radius: 50%;
+	border-radius: 50%; 
 }
 
 .dark-theme .content .text{
@@ -838,11 +921,21 @@ div.dark-theme{
 	color: grey;
 }
 
+.dark-theme .content .text strong{
+	color: black;
+}
+
 .dark-theme .footer{
 	margin-top: 15px;
 	margin-left: 350px;
 	display: flex;
 	font-size: 14px;
+}
+
+.dark-theme .footer span{
+	color: rgb(76, 119, 232);
+	margin-left: 10px;
+	margin-right: 10px;
 	cursor: pointer;
 }
 
@@ -976,7 +1069,7 @@ div.dark-theme{
 }
 
 .documentBox .documentBoxFooter li.lastLi{
-		margin-left: 40px;
+	margin-left: 40px;
 }
 
 .documentBox .documentBoxFooter li span.remind_me{

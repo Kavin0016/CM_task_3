@@ -10,14 +10,14 @@
 		<div class="left-header">
 			<!-- <h1>Begin</h1> -->
 			<div class="main-menu">
-				<img class="menu" src="img/main-menu.png" width="20" height="20"><span>Main menu</span>
+				<img class="menu"><span>Main menu</span>
 			</div>
-			<img class="logo" src="img/keep_icon.png" width="40" height="40">
-			<h2 style="font-weight:400;font-family: sans-serif;color: rgb(95, 99, 128);margin-left: 5px;margin-top: 15px;cursor: pointer;">Keep</h2>
+			<img class="logo">
+			<h2 class="title_Text">Keep</h2>
 		</div>		
 		<div class="search-box">
 			<div class="icon">
-				<img src="img/search.png" width="18">
+				<img class="search_Icon">
 			</div>
 			<div class="input">
 				<input type="text" placeholder="Search">
@@ -26,21 +26,21 @@
 		<div class="right-header">
 			<div class="group_one">
 				<div class="refresh">
-					<img src="img/refresh.png" width="25" height="25"><span>Refresh</span>
+					<img class="right_Refresh"><span>Refresh</span>
 				</div>
 				<div class="list-view">
-					<img src="img/list-view.png" width="35" height="35"><span>List View</span>
+					<img class="right_List"><span>List View</span>
 				</div>
 				<div class="settings">
-					<img src="img/settings.png" width="22" height="22"><span>Settings</span>
+					<img class="right_Settings"><span>Settings</span>
 				</div>
 			</div>
 			<div class="group_two">
 				<div class="dotted-grid">
-					<img src="img/dotted-grid.jpg" width="22" height="22"><span>Google Apps</span>
+					<img class="right_Grid"><span>Google Apps</span>
 				</div>
 				<div class="account">
-					<img src="img/profile_logo.jpg"><span>Kavinkumar<br>Intern at CODINGMART</span>
+					<img class="right_Account"><span>Kavinkumar<br>Intern at CODINGMART</span>
 				</div>
 			</div>
 		</div>
@@ -49,19 +49,19 @@
 		<div class="left-panel">
 			<ul>
 				<li id="notes">
-					<a><img src="img/bulb.png" style="width: 20px;height: 20px;"><span>Notes</span></a>
+					<a><img class="left_Notes"><span>Notes</span></a>
 				</li>
 				<li>
-					<a><img src="img/bell.png" style="width: 20px;height: 20px;"><span>Reminders</span></a>
+					<a><img class="left_Reminder"><span>Reminders</span></a>
 				</li>
 				<li>
-					<a><img src="img/pen2.png" style="width: 20px;height: 20px;"><span>Edit&nbsp;Labels</span></a>
+					<a><img class="left_Edit"><span>Edit&nbsp;Labels</span></a>
 				</li>
 				<li>
-					<a><img src="img/archieve.png" style="width: 20px;height: 20px;"><span>Archieve</span></a>
+					<a><img class="left_Archieve"><span>Archieve</span></a>
 				</li>
 				<li>
-					<a><img src="img/bin2.png" style="width: 20px;height: 20px;"><span>Bin</span></a>
+					<a><img class="left_Bin"><span>Bin</span></a>
 				</li>
 			</ul>		
 		</div>
@@ -81,13 +81,13 @@
 						<input class="input-take-note" type="text-area" placeholder="Take a note...">
 					</div>
 					<div class="list">
-						<img class="list_icon" src="img/checkbox.png" style="width: 20px;height: 20px;"><span>New list</span>
+						<img class="list_icon"><span>New list</span>
 					</div>
 					<div class="drawing">
-						<img src="img/paint_brush.png" style="width: 20px;height: 20px;"><span>New notes with drawing</span>
+						<img class="drawingImg"><span>New notes with drawing</span>
 					</div>
 					<div class="image">
-						<img src="img/album.png" class="upload_image" style="width: 20px;height: 20px;"><input id="upload" type="file" style="display: none;z-index: 9999;" accept="image/*"  onchange="loadFile(event)"><span>New notes with image</span>
+						<img class="upload_image"><input id="upload" type="file" accept="image/*"  onchange="loadFile(event)"><span>New notes with image</span>
 					</div>
 				</div>
 				<!-- <div class="listItemAdded">
@@ -124,21 +124,21 @@
 				</div> -->
 			</div>
 			<div class="documentContainer">
-			<div class="dark-theme">
-			<div class="content">
-				<div class="img">
-					<img src="img/dark_theme.png">
+				<div class="dark-theme">
+					<div class="content">
+						<div class="img">
+							<img class="img_Dark"></img>
+						</div>
+						<div class="text">
+							<strong>Dark theme is here</strong><br><br>
+							<span>Enjoy a more comfortable reading experience. Toggle on or off in Settings</span>
+						</div>
+					</div>
+					<div class="footer">
+						<span>OK</span>
+						<span>Turn it on</span>
+					</div>		
 				</div>
-				<div class="text">
-					<strong style="color: black;">Dark theme is here</strong><br><br>
-					<span>Enjoy a more comfortable reading experience. Toggle on or off in Settings</span>
-				</div>
-			</div>
-			<div class="footer">
-				<span>OK</span>
-				<span style="color: rgb(76, 119, 232);margin-left: 10px;margin-right: 10px;">Turn it on</span>
-			</div>		
-			</div>
 			<!-- <div class="documentBox">
 				<div class="tick">
 					<img src="img/tick.svg">
@@ -176,9 +176,9 @@
 					<li class="lastLi"><img src="img/vertical_dots.png" style=""><span class="more">More</span></li> 
 				</div>
 			</div> -->
-			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="index.js"></script>
+</div>
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
