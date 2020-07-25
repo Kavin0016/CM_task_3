@@ -18,12 +18,34 @@ panel.style.backgroundColor = "rgb(250, 250, 250)";
 panel.style.width = "1355px";
 panel.style.height = "607px";
 let ctx = panel.getContext('2d');
-draw();
+ctx.strokeStyle = "black";
+ctx.lineWidth = 1;
+let paint = true;
+panel.addEventListener('click',function(){alert("hi");});
+panel.addEventListener('mousedown',mouse_down);
+panel.addEventListener('mousemove',mouse_move);
+panel.addEventListener('mouseup',mouse_up);
 
-function draw(){
-	let draw_tool = 'chalk';
-	ctx.strokeStyle = "black";
-	ctx.lineWidth = 1.0;
-	ctx.fillStyle = "rgb(250, 250, 250)";
-	ctx.fillRect(0,0,897,532);
+
+function mouse_down(ev){
+	ctx.beginPath(); 
+ 	ctx.moveTo(ev._x, ev._y); 
+ 	paint = true;
+}
+
+function mouse_move(ev){
+	if (paint) {
+		ctx.beginPath(); 
+ 		ctx.lineTo(ev.clientX, ev.clientY); 
+ 		ctx.stroke(); 
+ 	}
+}
+
+function mouse_up(ev){
+	if (paint){ 
+ 		// tool.mousemove(ev); 
+ 		paint = true;
+ 		ctx.closePath();
+ 		// img_update();
+ 	}
 }

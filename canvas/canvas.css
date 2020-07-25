@@ -91,6 +91,7 @@ header{
 	cursor: pointer;
 }
 
-/*#drawingPanel{
-	overflow-x: hidden;
-}*/
+#drawingPanel{
+	overflow: hidden;
+	cursor: crosshair;
+}
