@@ -2,31 +2,30 @@ let canRemove = true;
 let show_list = true;
 load();
 loadImg();
+window.addEventListener('focus',getImage);
 function load(){
 	document.querySelector('.input-take-note').addEventListener('click',addTitle);
 	document.querySelector('.image').addEventListener('click',upload);
-	// document.querySelector('.image').addEventListener('change',loadFile);
 	document.querySelector('.list').addEventListener('click',showList);
-	// document.querySelector('.listItems').addEventListener('click',addListItem);
 }
 
 function loadImg(){
-	document.querySelector('.upload_image').src = "img/album.png";
-	document.querySelector('.drawingImg').src = "img/paint_brush.png";
-	document.querySelector('.list_icon').src = "img/checkbox.png";
-	document.querySelector('.left_Bin').src = "img/bin2.png";
-	document.querySelector('.left_Archieve').src = "img/archieve.png";
-	document.querySelector('.left_Edit').src = "img/pen2.png";
-	document.querySelector('.left_Reminder').src = "img/bell.png";
-	document.querySelector('.left_Notes').src = "img/bulb.png";
-	document.querySelector('.right_Account').src = "img/profile_logo.jpg";
-	document.querySelector('.right_Grid').src = "img/dotted-grid.jpg";
-	document.querySelector('.right_Settings').src = "img/settings.png";
-	document.querySelector('.right_List').src = "img/list-view.png";
-	document.querySelector('.right_Refresh').src = "img/refresh.png";
-	document.querySelector('.search_Icon').src = "img/search.png";
-	document.querySelector('.logo').src = "img/keep_icon.png";
-	document.querySelector('.menu').src = "img/main-menu.png";
+	document.querySelector('.upload_image').src = "img/note_section/album.png";
+	document.querySelector('.drawingImg').src = "img/note_section/paint_brush.png";
+	document.querySelector('.list_icon').src = "img/note_section/checkbox.png";
+	document.querySelector('.left_Bin').src = "img/left_panel/bin2.png";
+	document.querySelector('.left_Archieve').src = "img/left_panel/archieve.png";
+	document.querySelector('.left_Edit').src = "img/left_panel/pen2.png";
+	document.querySelector('.left_Reminder').src = "img/left_panel/bell.png";
+	document.querySelector('.left_Notes').src = "img/left_panel/bulb.png";
+	document.querySelector('.right_Account').src = "img/header/profile_logo.jpg";
+	document.querySelector('.right_Grid').src = "img/header/dotted-grid.jpg";
+	document.querySelector('.right_Settings').src = "img/header/settings.png";
+	document.querySelector('.right_List').src = "img/header/list-view.png";
+	document.querySelector('.right_Refresh').src = "img/header/refresh.png";
+	document.querySelector('.search_Icon').src = "img/header/search.png";
+	document.querySelector('.logo').src = "img/header/keep_icon.png";
+	document.querySelector('.menu').src = "img/header/main-menu.png";
 	document.querySelector('.img_Dark').src = "img/dark_theme.png";
 }
 
@@ -43,7 +42,6 @@ function addTitle(event)
 {
 	if((event.target.className == "input-take-note")||(event.target.className == "list_icon"))
 	{
-		// console.log(event.target.className);
 		// Creating Title Part
 		parent = document.querySelector('.note-section');
 		div_parent = document.createElement("div");
@@ -59,7 +57,7 @@ function addTitle(event)
 		div_child_two = document.createElement("div");
 		div_child_two.classList.add("img");
 		img = document.createElement("img");
-		img.src="img/push_pin.png";
+		img.src="img/note_section/push_pin.png";
 		div_child_two_span = document.createElement("span");
 		div_child_two_span.innerHTML = "Pin note";
 		div_child_two.appendChild(img);
@@ -187,45 +185,6 @@ function addTitle(event)
 		document.querySelector('.input-take-note').removeEventListener('click',addTitle);
 		canRemove = (!canRemove);
 	}
-	// else if(event.target.className == 'close')
-	// {
-	// 	parent = document.querySelector('.note-section');
-	// 	if((parent.children[2].className == "listItems")||(parent.children[2].className == "listItemAdded")){
-	// 		// parent.innerHTML = "";
-	// 		// let div_element = createBefore();
-	// 		// parent.appendChild(div_element);
-	// 		// let img = document.querySelector('#output');
-	// 		// img.remove();
-	// 		location.reload();
-	// 		// ==============================
-	// 		// let children = parent.children;
-	// 		// children.remove();
-	// 		// location.reload();
-	// 		return;
-	// 	}
-	// 	else
-	// 	{
-	// 	// ============================ Title as children[0]
-	// 	alert("Title children");
-	// 	parent.removeChild(parent.childNodes[0]);
-	// 	parent.removeChild(parent.childNodes[1]);
-	// 	parent.removeChild(parent.childNodes[3]);
-	// 	footer = document.querySelector('.note-footer');
-	// 	footer.remove();
-	// 	list = document.querySelector('.list');
-	// 	drawing = document.querySelector('.drawing');
-	// 	image = document.querySelector('.image');
-	// 	list.classList.toggle('not-visible');
-	// 	drawing.classList.toggle('not-visible');
-	// 	image.classList.toggle('not-visible');
-	// 	// if(!show_list){
-	// 	// 	let befoeClass = createBefore();
-	// 	// 	parent.replaceChild(befoeClass,parent.children[1]);
-	// 	// }
-	// 	canRemove = (!canRemove);
-	// 	}
-	// }
-
 }
 
 function createBefore(){
@@ -265,7 +224,7 @@ function createBefore(){
 	div_image = document.createElement("div");
 	div_image.classList.add("image");
 	div_image_img = document.createElement("img");
-	div_image_img.src = "img/album.png";
+	div_image_img.src = "img/note_section/album.png";
 	div_image_img.style.width = "20px";
 	div_image_img.style.height = "20px";
 	div_image_input = document.createElement("input");
@@ -305,23 +264,21 @@ function showList(event){
 		div_label.innerHTML = "+";
 		div_label.appendChild(div_input);
 		div_listItems.appendChild(div_label);
-		// alert("show event triggred");
 		parent.replaceChild(div_listItems, parent.children[1]);
 		document.querySelector('.listInput').addEventListener('keypress',addListItem);
 		return;
-		// show_list = (!show_list);
 	}
 }
 
 function addListItem(){
 	if(!(document.querySelector('.listInput').value == ""))
 	{
-	let text_value = document.querySelector('.listInput').value;
-	document.querySelector('.listInput').value = "";
-	parent = document.querySelector('.note-section');
-	div_listItemAdded = document.createElement("div");
-	div_listItemAdded.classList.add('listItemAdded');
-	div_listItemAdded.draggable = "true";
+		let text_value = document.querySelector('.listInput').value;
+		document.querySelector('.listInput').value = "";
+		parent = document.querySelector('.note-section');
+		div_listItemAdded = document.createElement("div");
+		div_listItemAdded.classList.add('listItemAdded');
+		div_listItemAdded.draggable = "true";
 	// ======================== div drag_btn
 	div_listItemAdded_drag_btn = document.createElement("div");
 	div_listItemAdded_drag_btn.classList.add("drag_btn");
@@ -363,7 +320,7 @@ function addListItem(){
 	// =====================append to parent
 	parent.insertBefore(div_listItemAdded,parent.children[1]);
 	document.querySelector('.listItemAdded_Close').addEventListener('click',deleteListItemAdded);
-	}
+}
 
 }
 
@@ -379,43 +336,40 @@ function lineThroughDocument(event){
 	label.classList.toggle("lineThrough");
 }
 
-	function deleteListItemAdded(event){
-		let parentExit = event.target.parentNode.parentNode;
-		parentExit.remove();
-	}
+function deleteListItemAdded(event){
+	let parentExit = event.target.parentNode.parentNode;
+	parentExit.remove();
+}
 
-	function loadFile(event){
-		let p = document.createElement("p");
-		// p.style.display = "flex";
-		// let div = document.createElement("div");
-		// div.classList.add("image_div");
-		let img = document.createElement("img");
-		img.id = "output";
-		img.style.width = "100%";
-		img.src = URL.createObjectURL(event.target.files[0]);
-		let img_delete = document.createElement("img");
-		img_delete.classList.add("img_delete");
-		img_delete.src = "img/bin.png";
-		img_delete.addEventListener('click',delete_Output);
-		let p_store = document.createElement("p");
-		p_store.classList.add("image_store");
-		p_store.innerText = "store";
-		p.appendChild(img);
-		p.appendChild(img_delete);
-		p.appendChild(p_store);
-		let parent = document.querySelector('.note-section');
-		parent.insertBefore(p,parent.children[0]);
-		p_store.addEventListener('click',storeData);
-	}
+function loadFile(event){
+	let p = document.createElement("p");
+	let img = document.createElement("img");
+	img.id = "output";
+	img.style.width = "100%";
+	img.src = URL.createObjectURL(event.target.files[0]);
+	let img_delete = document.createElement("img");
+	img_delete.classList.add("img_delete");
+	img_delete.src = "img/bin.png";
+	img_delete.addEventListener('click',delete_Output);
+	let p_store = document.createElement("p");
+	p_store.classList.add("image_store");
+	p_store.innerText = "store";
+	p.appendChild(img);
+	p.appendChild(img_delete);
+	p.appendChild(p_store);
+	let parent = document.querySelector('.note-section');
+	parent.insertBefore(p,parent.children[0]);
+	p_store.addEventListener('click',storeData);
+}
 
-	function delete_Output(event){
-		let parent = event.target.parentNode;
-		parent.remove();
-	}
+function delete_Output(event){
+	let parent = event.target.parentNode;
+	parent.remove();
+}
 
-	function storeData(event){
-		let parent = document.querySelector('.note-section');
-		if(parent.contains(document.querySelector("#output"))){
+function storeData(event){
+	let parent = document.querySelector('.note-section');
+	if(parent.contains(document.querySelector("#output"))){
 			// alert("image upload");
 			let documentContainer = document.querySelector('.documentContainer');
 			let documentBox = createDocumentBox();
@@ -426,13 +380,12 @@ function lineThroughDocument(event){
 			documentContainer.appendChild(documentBox);
 			let p = event.target.parentNode;
 			p.remove();
-			// document.querySelector('.image_delete').click();
 		}
 		else if(parent.children[1].className == "before")
 		{
-		if(!(document.querySelector('.after_click').value == "") || !(document.querySelector('.input-take-note').value == ""))
-		{	
-		let documentBox = createDocumentBox();
+			if(!(document.querySelector('.after_click').value == "") || !(document.querySelector('.input-take-note').value == ""))
+			{	
+				let documentBox = createDocumentBox();
 		//=================================================================================================================//
 		let title = document.querySelector('.after_click').value;
 		let content = document.querySelector('.input-take-note').value;
@@ -450,11 +403,13 @@ function lineThroughDocument(event){
 		documentBox.insertBefore(div,documentBox.children[1]);
 		let documentContainer = document.querySelector('.documentContainer');
 		documentContainer.appendChild(documentBox);
-		}
-		document.querySelector('.close').click();
-		}
-		else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded")
-		{
+	}
+	document.querySelector('.close').click();
+}
+else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded")
+{
+	if(!(document.querySelector('.after_click').value == "") || !(document.querySelector('.listItemAdded_Input').value == ""))
+	{
 			// alert("List class");
 			let title = document.querySelector('.after_click').value;
 			let div_documentBody = document.createElement("div");
@@ -477,16 +432,12 @@ function lineThroughDocument(event){
 			document.querySelector('.close').click();
 		}
 	}
+}
 
-	function closeBtn(event){
-		let parent = document.querySelector('.note-section');
-		if(parent.children[1].className == "before")
-		{
-		// Task Should Be added
-		// alert("before Class");
-		// let beforeClass = createBefore()
-		// parent.innerHTML = "";
-		// parent.appendChild(beforeClass);
+function closeBtn(event){
+	let parent = document.querySelector('.note-section');
+	if(parent.children[1].className == "before")
+	{
 		parent.children[0].remove();
 		parent.children[1].remove();
 		list = document.querySelector('.list');
@@ -501,8 +452,7 @@ function lineThroughDocument(event){
 	}
 	else if(parent.children[1].className == "listItems" || parent.children[1].className == "listItemAdded"){
 		// Lists Should be added
-		// alert("List class");
-		parent.innerHTML = '<div class="before"><div class="text"><input class="input-take-note" type="text-area" placeholder="Take a note..."></div><div class="list"><img class="list_icon" src="img/checkbox.png" style="width: 20px;height: 20px;"><span>New list</span></div><div class="drawing"><img src="img/paint_brush.png" style="width: 20px;height: 20px;"><span>New notes with drawing</span></div><div class="image"><img src="img/album.png" class="upload_image" style="width: 20px;height: 20px;"><input id="upload" type="file" style="display: none;z-index: 9999;" accept="image"  oninput="loadFile(event)"><span>New notes with image</span></div></div>';
+		parent.innerHTML = '<div class="before"><div class="text"><input class="input-take-note" type="text-area" placeholder="Take a note..."></div><div class="list"><img class="list_icon" src="img/note_section/checkbox.png" style="width: 20px;height: 20px;"><span>New list</span></div><a href="canvas/canvas.html" target="_blank"><div class="drawing"><img src="img/note_section/paint_brush.png" style="width: 20px;height: 20px;"><span>New notes with drawing</span></a></div><div class="image"><img src="img/note_section/album.png" class="upload_image" style="width: 20px;height: 20px;"><input id="upload" type="file" style="display: none;z-index: 9999;" accept="image"  oninput="loadFile(event)"><span>New notes with image</span></div></div>';
 		document.querySelector('.input-take-note').addEventListener('click',addTitle);
 		document.querySelector('.image').addEventListener('click',upload);
 		document.querySelector('.list_icon').addEventListener('click',showList);
@@ -532,17 +482,17 @@ function createDocumentBox(){
 	// ================================= LI Collabrate
 	let li_collabrate = document.createElement("li");
 	let li_collabrate_img = document.createElement("img");
-	 li_collabrate_img.src = "img/collabrate.png";
-	 li_collabrate_img.style.width = "25px";
-	 li_collabrate_img.style.height = "25px";
-	 li_collabrate_img.style.padding = "0px";
-	 li_collabrate_img.style.marginLeft = "-5px";
-	 li_collabrate_img.style.marginTop = "-5px";
-	 let li_collabrate_span = document.createElement("span");
-	 li_collabrate_span.classList.add("collabrate");
-	 li_collabrate_span.innerText = "Collabrate";
-	 li_collabrate.appendChild(li_collabrate_img);
-	 li_collabrate.appendChild(li_collabrate_span);
+	li_collabrate_img.src = "img/collabrate.png";
+	li_collabrate_img.style.width = "25px";
+	li_collabrate_img.style.height = "25px";
+	li_collabrate_img.style.padding = "0px";
+	li_collabrate_img.style.marginLeft = "-5px";
+	li_collabrate_img.style.marginTop = "-5px";
+	let li_collabrate_span = document.createElement("span");
+	li_collabrate_span.classList.add("collabrate");
+	li_collabrate_span.innerText = "Collabrate";
+	li_collabrate.appendChild(li_collabrate_img);
+	li_collabrate.appendChild(li_collabrate_span);
 	 // ====================================== LI Change color
 	 let li_change_color = document.createElement("li");
 	 let li_change_color_img = document.createElement("img");
@@ -592,30 +542,57 @@ function createDocumentBox(){
 	 parent.appendChild(footer);
 	 return parent;
 
-}
+	}
 
-function createDocumentContent()
-{
-	let parent = document.createElement("div");
-	let inputs = document.querySelectorAll('.listItemAdded_Input');
-	let checkboxs = document.querySelectorAll('.listItemAdded_Checkbox');
-	let input_count = inputs.length;
-	for(i=0;i<input_count;i++)
+	function createDocumentContent()
 	{
-	let div_documentContent = document.createElement("div");
-	div_documentContent.classList.add("documentContent");
-	div_documentContent_input = document.createElement("input");
-	div_documentContent_input.type = "checkbox";
-	div_documentContent_input.classList.add("documentContentCheckBox");
-	div_documentContent_input.checked = checkboxs[i].checked;
-	div_documentContent_label = document.createElement("label");
-	div_documentContent_label.innerText = inputs[i].value;
-	if(checkboxs[i].checked){
-		div_documentContent_label.classList.add("lineThrough");
+		let parent = document.createElement("div");
+		let inputs = document.querySelectorAll('.listItemAdded_Input');
+		let checkboxs = document.querySelectorAll('.listItemAdded_Checkbox');
+		let input_count = inputs.length;
+		for(i=0;i<input_count;i++)
+		{
+			let div_documentContent = document.createElement("div");
+			div_documentContent.classList.add("documentContent");
+			div_documentContent_input = document.createElement("input");
+			div_documentContent_input.type = "checkbox";
+			div_documentContent_input.classList.add("documentContentCheckBox");
+			div_documentContent_input.checked = checkboxs[i].checked;
+			div_documentContent_label = document.createElement("label");
+			div_documentContent_label.innerText = inputs[i].value;
+			if(checkboxs[i].checked){
+				div_documentContent_label.classList.add("lineThrough");
+			}
+			div_documentContent.appendChild(div_documentContent_input);
+			div_documentContent.appendChild(div_documentContent_label);
+			parent.appendChild(div_documentContent)
+		}
+		return parent;
 	}
-	div_documentContent.appendChild(div_documentContent_input);
-	div_documentContent.appendChild(div_documentContent_label);
-	parent.appendChild(div_documentContent)
+
+	function getImage(){
+		if (localStorage.getItem('modalObject')) {
+			let object = JSON.parse(localStorage.getItem('modalObject'));
+			let documentContainer = document.querySelector('.documentContainer');
+			let documentBox = createDocumentBox();
+			documentBox.style.float = "left";
+			let img = document.createElement("img");
+			img.style.width = "100%";
+			img.style.backgroundColor = "rgb(250,250,250)";
+			img.src = object['image'];
+			let div =document.createElement("div");
+			let div_p_title = document.createElement("P");
+			div_p_title.innerText = object['title'];
+			div_p_title.classList.add("documentBoxTitle");
+			div.appendChild(div_p_title);
+			let div_p_content = document.createElement("p");
+			div_p_content.classList.add("documentBoxContent");
+			div_p_content.innerText = object['notes'];
+			div.appendChild(div_p_title);
+			div.appendChild(div_p_content);
+			documentBox.insertBefore(img,documentBox.children[1]);
+			documentBox.insertBefore(div,documentBox.children[2]);
+			documentContainer.appendChild(documentBox);
+			localStorage.removeItem('modalObject');
+		}
 	}
-	return parent;
-}
